@@ -1,0 +1,7 @@
+C:\Users\132333\OneDrive - Academy District 20\Coding\Adding things with Methods\Adding things with Methods\bin\Debug\Adding things with Methods.exe.config
+C:\Users\132333\OneDrive - Academy District 20\Coding\Adding things with Methods\Adding things with Methods\bin\Debug\Adding things with Methods.exe
+C:\Users\132333\OneDrive - Academy District 20\Coding\Adding things with Methods\Adding things with Methods\bin\Debug\Adding things with Methods.pdb
+C:\Users\132333\OneDrive - Academy District 20\Coding\Adding things with Methods\Adding things with Methods\obj\Debug\Adding things with Methods.csprojAssemblyReference.cache
+C:\Users\132333\OneDrive - Academy District 20\Coding\Adding things with Methods\Adding things with Methods\obj\Debug\Adding things with Methods.csproj.CoreCompileInputs.cache
+C:\Users\132333\OneDrive - Academy District 20\Coding\Adding things with Methods\Adding things with Methods\obj\Debug\Adding things with Methods.exe
+C:\Users\132333\OneDrive - Academy District 20\Coding\Adding things with Methods\Adding things with Methods\obj\Debug\Adding things with Methods.pdb

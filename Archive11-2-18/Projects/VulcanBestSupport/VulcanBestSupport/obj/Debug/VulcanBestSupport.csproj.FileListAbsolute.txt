@@ -1,0 +1,7 @@
+D:\OneDrive - Academy District 20\Coding\VulcanBestSupport\VulcanBestSupport\bin\Debug\VulcanBestSupport.exe.config
+D:\OneDrive - Academy District 20\Coding\VulcanBestSupport\VulcanBestSupport\bin\Debug\VulcanBestSupport.exe
+D:\OneDrive - Academy District 20\Coding\VulcanBestSupport\VulcanBestSupport\bin\Debug\VulcanBestSupport.pdb
+D:\OneDrive - Academy District 20\Coding\VulcanBestSupport\VulcanBestSupport\obj\Debug\VulcanBestSupport.csprojAssemblyReference.cache
+D:\OneDrive - Academy District 20\Coding\VulcanBestSupport\VulcanBestSupport\obj\Debug\VulcanBestSupport.csproj.CoreCompileInputs.cache
+D:\OneDrive - Academy District 20\Coding\VulcanBestSupport\VulcanBestSupport\obj\Debug\VulcanBestSupport.exe
+D:\OneDrive - Academy District 20\Coding\VulcanBestSupport\VulcanBestSupport\obj\Debug\VulcanBestSupport.pdb

@@ -1,0 +1,41 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		string answer = "";
+		do
+		{
+			Console.WriteLine("*****************************************************");
+			Console.WriteLine("** Enter the integer value for the action you want to perform");
+			Console.WriteLine("** 1. Add 2 and 3");
+			Console.WriteLine("** 2. Subtract 2 from 3");
+			Console.WriteLine("** 3. Multiply 2 by 3");
+			Console.WriteLine("** 4. Exit the program");
+			Console.WriteLine("*****************************************************");
+			answer = Console.ReadLine();
+		
+			if (answer == "1")	
+			{
+				Console.WriteLine("2 + 3 = 5");
+			}
+			else if (answer == "2")
+			{
+				Console.WriteLine("3 - 2 = 1");
+			}
+			else if (answer == "3")
+			{
+				Console.WriteLine("2 * 3 = 6");
+			}
+			else if (answer == "4")
+			{
+				Environment.Exit(0);
+			}
+		} while (answer != "");
+	}
+}
+
+Project 1
+
+

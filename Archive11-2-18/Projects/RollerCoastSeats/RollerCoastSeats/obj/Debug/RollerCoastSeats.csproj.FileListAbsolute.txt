@@ -1,0 +1,7 @@
+C:\Users\132333\OneDrive - Academy District 20\Coding\RollerCoastSeats\RollerCoastSeats\bin\Debug\RollerCoastSeats.exe.config
+C:\Users\132333\OneDrive - Academy District 20\Coding\RollerCoastSeats\RollerCoastSeats\bin\Debug\RollerCoastSeats.exe
+C:\Users\132333\OneDrive - Academy District 20\Coding\RollerCoastSeats\RollerCoastSeats\bin\Debug\RollerCoastSeats.pdb
+C:\Users\132333\OneDrive - Academy District 20\Coding\RollerCoastSeats\RollerCoastSeats\obj\Debug\RollerCoastSeats.csprojAssemblyReference.cache
+C:\Users\132333\OneDrive - Academy District 20\Coding\RollerCoastSeats\RollerCoastSeats\obj\Debug\RollerCoastSeats.csproj.CoreCompileInputs.cache
+C:\Users\132333\OneDrive - Academy District 20\Coding\RollerCoastSeats\RollerCoastSeats\obj\Debug\RollerCoastSeats.exe
+C:\Users\132333\OneDrive - Academy District 20\Coding\RollerCoastSeats\RollerCoastSeats\obj\Debug\RollerCoastSeats.pdb

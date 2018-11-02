@@ -1,0 +1,7 @@
+C:\Users\132333\OneDrive - Academy District 20\Coding\Random Stuff\Number Orderer\Number Orderer\bin\Debug\Number Orderer.exe.config
+C:\Users\132333\OneDrive - Academy District 20\Coding\Random Stuff\Number Orderer\Number Orderer\bin\Debug\Number Orderer.exe
+C:\Users\132333\OneDrive - Academy District 20\Coding\Random Stuff\Number Orderer\Number Orderer\bin\Debug\Number Orderer.pdb
+C:\Users\132333\OneDrive - Academy District 20\Coding\Random Stuff\Number Orderer\Number Orderer\obj\Debug\Number Orderer.csprojAssemblyReference.cache
+C:\Users\132333\OneDrive - Academy District 20\Coding\Random Stuff\Number Orderer\Number Orderer\obj\Debug\Number Orderer.csproj.CoreCompileInputs.cache
+C:\Users\132333\OneDrive - Academy District 20\Coding\Random Stuff\Number Orderer\Number Orderer\obj\Debug\Number Orderer.exe
+C:\Users\132333\OneDrive - Academy District 20\Coding\Random Stuff\Number Orderer\Number Orderer\obj\Debug\Number Orderer.pdb

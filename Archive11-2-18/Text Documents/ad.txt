@@ -1,0 +1,92 @@
+using System;
+					
+public class Program
+{
+	public static void Main(string[] args)
+	{
+		
+		//Console.WriteLine("What is your first name:");
+		//string firstName = Console.ReadLine();
+		
+		//Console.WriteLine("What is your last name:");
+		//string lastName = Console.ReadLine();
+		
+		//Console.WriteLine("Hello " + firstName + " " + lastName + " you are awesome!");
+		
+		
+		// Break from first project
+		
+		
+		//Console.WriteLine("Please Enter your age:");
+		//int Number = int.TryParse(Console.ReadLine());
+		//int Number = Convert.ToInt32(Console.ReadLine());
+		
+		//if (Number < 16)
+		//{
+			//Console.WriteLine("You can not Legally Drive!");
+			//Console.WriteLine("You can not Legally drink!");
+		//}
+		//else
+		//{
+			//if (Number < 21)
+			//{
+				//Console.WriteLine("You can not drink but you can drive! Congrats!");
+			//}
+			//else
+			//{
+				//Console.WriteLine("You can drink and you can drive! But we wouldn't recommend them at the same time");
+			//}
+		//}
+				
+		
+		//Console.WriteLine("What's your favorite number: ");
+		//int Number = Convert.ToInt32(Console.ReadLine());
+		//if (Number == Int);
+		
+		//int Number = int.TryParse(Console.ReadLine());		<--- Other method
+		
+		//Number = Number + 2;
+		//Console.WriteLine(Number);
+		
+		
+		Console.WriteLine("Do you live in Colorado?");
+		string result = Console.ReadLine();
+		
+		if (result.ToLower()[0] == 'y')
+		{
+			Console.WriteLine("What is your age?");
+			int age = Convert.ToInt32(Console.ReadLine());
+			
+			if (result.ToLower()[0] == 'y' && age >= 18)
+			{
+				Console.WriteLine("You live in Colorado and you're of age. Don't be stupid!");
+			}
+			else
+			{
+				Console.WriteLine("You live in Colorado but you are not of age. So no Marijuana for you");
+			}
+		}
+		else
+		{
+			Console.WriteLine("You don't live in Colorado so no marijuana for you");
+		}
+	}
+}
+Bottles of Beer
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		// 99 Bears on the wall Writing
+		Console.WriteLine("Counting 99 bottles of beer on the wall");
+		for (int i = 99; i >= 1; i--)
+		if (i == 2)
+			Console.WriteLine( i + " " + "bottles of beer on the wall," + " "  + i + " " + "bottles of beer, take one down pass it around," + " " + (i-1) + " " + "bottle of beer on the wall");
+		else if (i == 1)
+			Console.WriteLine( i + " " + "bottle of beer on the wall," + " "  + i + " " + "bottle of beer, take one down pass it around," + " " + (i-1) + " " + "bottles of beer on the wall");
+		else
+			Console.WriteLine( i + " " + "bottles of beer on the wall," + " "  + i + " " + "bottles of beer, take one down pass it around," + " " + (i-1) + " " + "bottles of beer on the wall");
+	}
+}

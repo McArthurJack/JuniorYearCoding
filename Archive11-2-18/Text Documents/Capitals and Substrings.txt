@@ -1,0 +1,24 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Enter your first name?");
+		string first=Console.ReadLine();
+		string first2 = "";
+		first = first.ToLower();
+		first2 = first.Substring(0,1);
+		first2 = first2.ToUpper();
+		string finishedfirst = (first2 + first.Substring(1));
+		Console.WriteLine("Enter your last name?");
+		string last=Console.ReadLine();
+		last=last.ToLower();
+		string last2 = "";
+		last = last.ToLower();
+		last2 = last.Substring(0,1);
+		last2 = last2.ToUpper();
+		string finished = (last2 + last.Substring(1));
+		Console.WriteLine(finishedfirst + " " + finished);
+	}
+}
