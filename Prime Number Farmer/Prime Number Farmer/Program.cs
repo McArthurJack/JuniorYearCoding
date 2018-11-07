@@ -14,9 +14,13 @@ namespace Prime_Number_Farmer
             float numberf = 0;
             int counter = 0;
             int prime = 0;
-            bool breakshit = false;
+            bool stop = false;
             List<int> primenumbers = new List<int>();
-            for (int i = 2; i < 10; i++)
+            primenumbers.Add(2);
+            primenumbers.Add(3);
+            primenumbers.Add(5);
+            primenumbers.Add(7);
+            for (int i = 2; i < 10000000; i++)
             {
                 number = i;
                 numberf = i;
@@ -25,7 +29,7 @@ namespace Prime_Number_Farmer
                     counter++;
                     if (number / j == numberf / j)
                     {
-                        breakshit = true;
+                        stop = true;
                         break;
                     }
                     else
@@ -33,7 +37,7 @@ namespace Prime_Number_Farmer
                 }
                 for (int j = 0; j < primenumbers.Count; j++)
                 {
-                    if (breakshit == true)
+                    if (stop == true)
                         break;
                     if (Math.Sqrt(numberf) < primenumbers[j])
                         break;
@@ -47,9 +51,9 @@ namespace Prime_Number_Farmer
                 }
                 if (prime == counter)
                     primenumbers.Add(i);
-                breakshit = false;
                 prime = 0;
                 counter = 0;
+                stop = false;
             }
             //for (int i = 0; i < primenumbers.Count; i++)
             //    Console.Write("| " + primenumbers[i] + " |");
