@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Prime Numbers")]
+[assembly: AssemblyTitle("Method Overloading")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Prime Numbers")]
+[assembly: AssemblyProduct("Method Overloading")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("62a724d2-4003-4ff4-af12-e28d5078a49a")]
+[assembly: Guid("218a0aac-e736-40e6-9cef-64a168d9f2d5")]
 
 // Version information for an assembly consists of the following four values:
 //

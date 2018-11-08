@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{62A724D2-4003-4FF4-AF12-E28D5078A49A}</ProjectGuid>
+    <ProjectGuid>{218A0AAC-E736-40E6-9CEF-64A168D9F2D5}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Prime_Numbers</RootNamespace>
-    <AssemblyName>Prime Numbers</AssemblyName>
+    <RootNamespace>Method_Overloading</RootNamespace>
+    <AssemblyName>Method Overloading</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
