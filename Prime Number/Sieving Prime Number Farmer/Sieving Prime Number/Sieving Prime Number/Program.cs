@@ -10,15 +10,20 @@ namespace Sieving_Prime_Number
     {
         static void Main(string[] args)
         {
-            imit ← 1000000000        // arbitrary search limit
+            double limit = 1000000000;
 
 // set of wheel "hit" positions for a 2/3/5 wheel rolled twice as per the Atkin algorithm
-            s ← { 1,7,11,13,17,19,23,29,31,37,41,43,47,49,53,59}
+            //s ← { 1,7,11,13,17,19,23,29,31,37,41,43,47,49,53,59}
+            List<int> hit = new List<int>() { 1, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 49, 53, 59 };
 
             // Initialize the sieve with enough wheels to include limit:
             for n ← 60 × w + x where w ∈ { 0,1,...,limit ÷ 60}, x ∈ s:
             is_prime(n) ← false
 
+            for (int n = 60; )
+            {
+
+            }
 // Put in candidate primes:
 //   integers which have an odd number of
 //   representations by certain quadratic forms.
