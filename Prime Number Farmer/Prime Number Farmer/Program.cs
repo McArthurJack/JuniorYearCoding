@@ -11,7 +11,7 @@ namespace Prime_Number_Farmer
         static void Main(string[] args)
         {
             int number = 0;
-            float numberf = 0;
+            double numberf = 0;
             int counter = 0;
             int prime = 0;
             bool stop = false;
@@ -20,7 +20,7 @@ namespace Prime_Number_Farmer
             primenumbers.Add(3);
             primenumbers.Add(5);
             primenumbers.Add(7);
-            for (int i = 2; i < 10000000; i++)
+            for (int i = 2; i < 10000000000; i++)
             {
                 number = i;
                 numberf = i;
@@ -44,7 +44,7 @@ namespace Prime_Number_Farmer
                     counter++;
                     if (number / primenumbers[j] == numberf / primenumbers[j])
                     {
-
+                        break;
                     }
                     else
                         prime++;
@@ -55,10 +55,10 @@ namespace Prime_Number_Farmer
                 counter = 0;
                 stop = false;
             }
-            //for (int i = 0; i < primenumbers.Count; i++)
-            //    Console.Write("| " + primenumbers[i] + " |");
-            int Count = primenumbers.Count();
-            Console.Write(Count);
+            for (int i = 0; i < primenumbers.Count; i++)
+                Console.Write("| " + primenumbers[i] + " |");
+            Console.WriteLine();
+            Console.Write(primenumbers.Count);
             Console.ReadLine();
         }
     }
