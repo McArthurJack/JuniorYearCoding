@@ -10,6 +10,7 @@ namespace Prime_Number_Farmer
     {
         static void Main(string[] args)
         {
+            int answer = 0;
             int number = 0;
             double numberf = 0;
             int counter = 0;
@@ -20,7 +21,21 @@ namespace Prime_Number_Farmer
             primenumbers.Add(3);
             primenumbers.Add(5);
             primenumbers.Add(7);
-            for (int i = 2; i < 10000000000; i++)
+
+            for (int i = 0; i < answer; i++)
+            {
+                CoreMain();
+                Core1();
+                Core2();
+                Core3();
+                Core4();
+                Core5();
+            }
+
+
+            Console.Write("Enter a value to search for all the prime numbers from 0 to that number: ");
+            answer = Convert.ToInt32(Console.ReadLine());
+            for (int i = 2; i < answer; i++)
             {
                 number = i;
                 numberf = i;
@@ -35,7 +50,7 @@ namespace Prime_Number_Farmer
                     else
                         prime++;
                 }
-                for (int j = 0; j < primenumbers.Count; j++)
+                for (int j = 5; j < primenumbers.Count-4; j++)
                 {
                     if (stop == true)
                         break;
@@ -56,10 +71,40 @@ namespace Prime_Number_Farmer
                 stop = false;
             }
             for (int i = 0; i < primenumbers.Count; i++)
-                Console.Write("| " + primenumbers[i] + " |");
+                Console.Write(primenumbers[i] + " |");
             Console.WriteLine();
             Console.Write(primenumbers.Count);
             Console.ReadLine();
+        }
+
+        static void CoreMain()
+        {
+
+        }
+
+        static void Core1()
+        {
+
+        }
+
+        static void Core2()
+        {
+
+        }
+
+        static void Core3()
+        {
+
+        }
+        
+        static void Core4()
+        {
+
+        }
+
+        static void Core5()
+        {
+
         }
     }
 }
