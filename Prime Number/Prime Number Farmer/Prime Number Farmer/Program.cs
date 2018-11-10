@@ -17,30 +17,36 @@ namespace Prime_Number_Farmer
             int prime = 0;
             List<int> primenumbers = new List<int>();
 
-            for (int i = 0; i < answer; i++)
-            {
-                CoreMain();
-                Core1();
-                Core2();
-                Core3();
-                Core4();
-                Core5();
-            }
+            //for (int i = 0; i < answer; i++)
+            //{
+            //    CoreMain();
+            //    Core1();
+            //    Core2();
+            //    Core3();
+            //    Core4();
+            //    Core5();
+            //}
 
 
             Console.Write("Enter a value to search for all the prime numbers from 0 to that number: ");
             answer = Convert.ToInt32(Console.ReadLine());
-            for (int i = 2; i < answer; i++)
+            int checker = 0;
+            int primeIndex = 0;
+            primenumbers.Add(2);
+            primenumbers.Add(3);
+            for (int i = 5; i< answer; i+=2)
             {
                 number = i;
                 numberf = i;
-                for (int j = 0; j < primenumbers.Count; j++)
+                if (Math.Sqrt(numberf) > primenumbers[primeIndex])
+                    primeIndex++;
+                for (int j = 0; j < primeIndex; j++)
                 {
-                    if (Math.Sqrt(numberf) < primenumbers[j])
-                        break;
+                    checker++;
                     counter++;
                     if (number / primenumbers[j] == numberf / primenumbers[j])
                     {
+                        j = primeIndex;
                         break;
                     }
                     else
@@ -51,41 +57,45 @@ namespace Prime_Number_Farmer
                 prime = 0;
                 counter = 0;
             }
-            //for (int i = 0; i < primenumbers.Count; i++)
-            //    Console.Write(primenumbers[i] + " |");
-            //Console.WriteLine();
+            
             Console.Write(primenumbers.Count);
+            Console.WriteLine();
+            Console.WriteLine("Checks:" + checker);
+            Console.WriteLine("Continue........");
+            Console.ReadLine();
+            for (int i = 0; i < primenumbers.Count; i++)
+                Console.Write(primenumbers[i] + " |");
             Console.ReadLine();
         }
 
-        static void CoreMain()
-        {
+        //static void CoreMain()
+        //{
 
-        }
+        //}
 
-        static void Core1()
-        {
+        //static void Core1()
+        //{
 
-        }
+        //}
 
-        static void Core2()
-        {
+        //static void Core2()
+        //{
 
-        }
+        //}
 
-        static void Core3()
-        {
+        //static void Core3()
+        //{
 
-        }
+        //}
         
-        static void Core4()
-        {
+        //static void Core4()
+        //{
 
-        }
+        //}
 
-        static void Core5()
-        {
+        //static void Core5()
+        //{
 
-        }
+        //}
     }
 }
