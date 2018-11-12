@@ -10,7 +10,7 @@ namespace Prime_Number_Farmer
     {
         static void Main(string[] args)
         {
-            int answer = 0;
+            double answer = 0;
             int number = 0;
             double numberf = 0;
             int counter = 0;
@@ -29,8 +29,8 @@ namespace Prime_Number_Farmer
 
 
             Console.Write("Enter a value to search for all the prime numbers from 0 to that number: ");
-            answer = Convert.ToInt32(Console.ReadLine());
-            int checker = 0;
+            answer = Convert.ToDouble(Console.ReadLine());
+            double checker = 0;
             int primeIndex = 0;
             primenumbers.Add(2);
             primenumbers.Add(3);
