@@ -10,9 +10,9 @@ namespace Card_Framework_with_small_game
     {
         List<Card> hand = new List<Card>();
 
-        static void Draw(Deck)
-        {
+        //static void Draw(Deck)
+        //{
 
-        }
+        //}
     }
 }

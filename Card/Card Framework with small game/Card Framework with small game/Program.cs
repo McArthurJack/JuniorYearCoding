@@ -10,7 +10,8 @@ namespace Card_Framework_with_small_game
     {
         static void Main(string[] args)
         {
-
+            Reset(Deck);
+            Console.ReadLine();
         }
     }
 }

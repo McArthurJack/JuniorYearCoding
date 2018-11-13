@@ -34,19 +34,13 @@ namespace Card_Framework_with_small_game
     {
         public Card(Face f, Suit s)
         {
-            for (int i = 0; i < 13; i++)
-            {
-                for (int j = 0; j < 4; j++)
-                {
-                    Card f[i]+s[j] = new Card(); 
-                }
-            }
+            Card card = new Card((Face)f, (Suit)s);
         }
 
         public string GetFace(List<string> Face)
         {
-
-            return Face[];
+            string face = Face[0];
+            return face;
         }
     }
 }
