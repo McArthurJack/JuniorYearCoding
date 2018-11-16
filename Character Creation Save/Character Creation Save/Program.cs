@@ -102,10 +102,10 @@ namespace Character_Creation_Save
                 answer = Convert.ToInt32(Console.ReadLine());
             } while (Points - answer >= 0);
             Console.WriteLine("You have " + Points + " unused.");
-            Character Wow = new Character(Name, Strength, Dexterity, Happiness, Intelligence, Wealth);
-            SaveCharacter(Wow);
-            Characters.Add(Wow);
-            return Wow;
+            Character  = new Character(Name, Strength, Dexterity, Happiness, Intelligence, Wealth);
+            SaveCharacter();
+            Characters.Add();
+            return ;
         }
 
         void ModifyCharacter(Character character)
