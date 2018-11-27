@@ -16,8 +16,6 @@ namespace Character_Creation_Save
         public int Happiness;
         public int Intelligence;
         public int Wealth;
-        public int Points = 100;
-        public int answer = 0;
 
         public Character(string Name, int Strength, int Dexterity, int Happiness, int Intelligence, int Wealth)
         {
