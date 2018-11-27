@@ -147,6 +147,7 @@ namespace Character_Creation_Save
 
         static void PrintCharacter(Character character)
         {
+            Console.WriteLine();
             string path = AppDomain.CurrentDomain.BaseDirectory + "@" + character.Name + ".txt";
             using (StreamReader sr = new StreamReader(path))
             {
