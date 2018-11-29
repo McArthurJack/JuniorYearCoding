@@ -10,44 +10,63 @@ namespace Character_Creation_Save
     {
         static void Main(string[] args)
         {
-            Character Player = new Character("4head", 10, 10, 10, 10, 10);
+            Character character = new Character("4head", 10, 10, 10, 10, 10);
             int answer = 0;
             do
             {
+                Console.Clear();
                 Console.WriteLine("1. Create a character");
                 Console.WriteLine("2. Modify a character");
                 Console.WriteLine("3. Delete a character");
                 Console.WriteLine("4. Loading existing character");
                 Console.WriteLine("5. Print Character");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("6. Exit");
                 answer = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
                 if (answer == 1)
                 {
                     CreateCharacter();
                 }
                 if (answer == 2)
                 {
-                    ModifyCharacter(Player);
+                    Console.Write("Enter the name of the character you want to modify: ");
+                    character = LoadCharacter(Console.ReadLine());
+                    Console.WriteLine();
+                    ModifyCharacter(character);
                 }
                 if (answer == 3)
                 {
-                    
+                    Console.Write("Enter the name of the character you want to delete: ");
+                    if (DeleteCharacter(Console.ReadLine()) == true)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Character was deleted");
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Character does not exist");
+                    }
                 }
                 if (answer == 4)
                 {
 
+                    Console.Write("Enter the name of the character you want to load: ");
+                    LoadCharacter(Console.ReadLine());
                 }
                 if (answer == 5)
                 {
-                    PrintCharacter(Player);
+                    Console.Write("Enter name of the character: ");
+                    character = LoadCharacter(Console.ReadLine());
+                    PrintCharacter(character);
                 }
-                Console.WriteLine();
+                Console.WriteLine("Press anything to continue");
+                Console.ReadLine();
             } while (answer != 6);
         }
 
         static Character CreateCharacter()
         {
-            Console.WriteLine();
         string Name;
         int Strength = 0;
         int Dexterity = 0;
@@ -98,14 +117,72 @@ namespace Character_Creation_Save
             } while (Points - answer < 0);
             Points -= answer;
             Console.WriteLine("You have " + Points + " unused.");
-            Character Player = new Character(Name, Strength, Dexterity, Happiness, Intelligence, Wealth);
-            SaveCharacter(Player);
-            return Player;
+            Character character = new Character(Name, Strength, Dexterity, Happiness, Intelligence, Wealth);
+            SaveCharacter(character);
+            return character;
         }
 
         static void ModifyCharacter(Character character)
         {
+            if (File.Exists(character.Name + ".txt"))
+            {
+                int response = 0;
+                int Points = 100 - (character.Strength + character.Dexterity + character.Happiness + character.Intelligence + character.Wealth);
+                do
+                {
+                    Console.WriteLine("What do you want to modify about the character?");
+                    Console.WriteLine("1. Name | 2. Strength | 3. Dexterity | 4. Happiness | 5. Intelligence | 6. Wealth");
+                    Console.WriteLine("You have " + Points + " leftover from the original character creation");
+                    Console.Write("Response: ");
+                    if (Convert.ToInt32(Console.ReadLine()) == 1)
+                    {
+                        Console.Write("Enter new name: ");
+                        string temp = character.Name;
+                        character.Name = Console.ReadLine();
+                        DeleteCharacter(temp);
+                        SaveCharacter(character);
+                        Console.WriteLine("Characters name changed");
+                        Console.WriteLine();
+                    }
+                    if (Convert.ToInt32(Console.ReadLine()) == 2)
+                    {
+                        Console.Write("Enter the new strength of the character: ");
+                        if ((Points + character.Strength) - Convert.ToInt32(Console.ReadLine()) < 0)
+                        {
+                            Points += character.Strength;
+                            Points = Points - Convert.ToInt32(Console.ReadLine());
+                            character.Strength = Convert.ToInt32(Console.ReadLine());
+                            SaveCharacter(character);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Overloading point usage");
+                        }
+                        Console.WriteLine();
+                    }
+                    if (Convert.ToInt32(Console.ReadLine()) == 3)
+                    {
 
+                    }
+                    if (Convert.ToInt32(Console.ReadLine()) == 4)
+                    {
+
+                    }
+                    if (Convert.ToInt32(Console.ReadLine()) == 5)
+                    {
+
+                    }
+                    if (Convert.ToInt32(Console.ReadLine()) == 6)
+                    {
+
+                    }
+                } while (response != 7);
+            }
+            else
+            {
+                Console.WriteLine("Character does not exist");
+            }
+            
         }
 
         static void SaveCharacter(Character character)
@@ -116,48 +193,89 @@ namespace Character_Creation_Save
             int Happiness = character.Happiness;
             int Intelligence = character.Intelligence;
             int Wealth = character.Wealth;
-
-            string path = AppDomain.CurrentDomain.BaseDirectory + "@" + Name + ".txt";
-            using (StreamWriter sw = new StreamWriter(path))
+            string path = AppDomain.CurrentDomain.BaseDirectory + Name + ".txt";
+            if (File.Exists(path))
             {
-                sw.WriteLine("Name: " + Name);
-                sw.WriteLine("Strength: " + Strength);
-                sw.WriteLine("Dexterity: " + Dexterity);
-                sw.WriteLine("Happiness: " + Happiness);
-                sw.WriteLine("Intelligence: " + Intelligence);
-                sw.WriteLine("Wealth: " + Wealth);
+                Console.Write("Would you like to overwrite?: ");
+                if (Console.ReadLine()[0] == 'y')
+                {
+                    using (StreamWriter sw = new StreamWriter(path))
+                    {
+                        sw.WriteLine(Name);
+                        sw.WriteLine(Strength);
+                        sw.WriteLine(Dexterity);
+                        sw.WriteLine(Happiness);
+                        sw.WriteLine(Intelligence);
+                        sw.WriteLine(Wealth);
+                    }
+                    Console.WriteLine("Overwritten");
+                }
+                else
+                {
+                    Console.WriteLine("Nothing was over written");
+                }
             }
+            else
+            {
+                using (StreamWriter sw = new StreamWriter(path))
+                {
+                    sw.WriteLine(Name);
+                    sw.WriteLine(Strength);
+                    sw.WriteLine(Dexterity);
+                    sw.WriteLine(Happiness);
+                    sw.WriteLine(Intelligence);
+                    sw.WriteLine(Wealth);
+                }
+                Console.WriteLine("Character was saved");
+            }
+            Console.WriteLine();
         }
 
-        bool DeleteCharacter(string characterName)
+        static bool DeleteCharacter(string characterName)
         {
             bool delete = false;
-
             if (File.Exists(characterName + ".txt"))
+            {
+                File.Delete(characterName + ".txt");
                 delete = true;
+            }
             else
+            {
                 delete = false;
+            }
             return delete;
         }
 
-        //Character LoadCharacter(string characterName)
-        //{
+        static Character LoadCharacter(string characterName)
+        {
+            string Name; int Strength = 0; int Dexterity = 0; int Happiness = 0; int Intelligence = 0; int Wealth = 0;
 
-        //}
+            string path = AppDomain.CurrentDomain.BaseDirectory + characterName + ".txt";
+            using (StreamReader sr = new StreamReader(path))
+            {
+                Name = sr.ReadLine();
+                Strength = Convert.ToInt32(sr.ReadLine());
+                Dexterity = Convert.ToInt32(sr.ReadLine());
+                Happiness = Convert.ToInt32(sr.ReadLine());
+                Intelligence = Convert.ToInt32(sr.ReadLine());
+                Wealth = Convert.ToInt32(sr.ReadLine());
+            }
+            Character character = new Character(Name, Strength, Dexterity, Happiness, Intelligence, Wealth);
+            return character;
+        }
 
         static void PrintCharacter(Character character)
         {
             Console.WriteLine();
-            string path = AppDomain.CurrentDomain.BaseDirectory + "@" + character.Name + ".txt";
+            string path = AppDomain.CurrentDomain.BaseDirectory + character.Name + ".txt";
             using (StreamReader sr = new StreamReader(path))
             {
-                Console.WriteLine(sr.ReadLine());
-                Console.WriteLine(sr.ReadLine());
-                Console.WriteLine(sr.ReadLine());
-                Console.WriteLine(sr.ReadLine());
-                Console.WriteLine(sr.ReadLine());
-                Console.WriteLine(sr.ReadLine());
-                Console.WriteLine(sr.ReadLine());
+                Console.WriteLine("Name: " + sr.ReadLine());
+                Console.WriteLine("Strength: " + sr.ReadLine());
+                Console.WriteLine("Dexterity: " + sr.ReadLine());
+                Console.WriteLine("Happiness: " + sr.ReadLine());
+                Console.WriteLine("Intelligence: " + sr.ReadLine());
+                Console.WriteLine("Wealth: " + sr.ReadLine());
             }
         }
     }
