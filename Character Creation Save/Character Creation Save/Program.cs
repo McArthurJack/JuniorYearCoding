@@ -60,8 +60,11 @@ namespace Character_Creation_Save
                     character = LoadCharacter(Console.ReadLine());
                     PrintCharacter(character);
                 }
-                Console.WriteLine("Press anything to continue");
-                Console.ReadLine();
+                if (answer != 6)
+                {
+                    Console.WriteLine("Press anything to continue");
+                    Console.ReadLine();
+                }
             } while (answer != 6);
         }
 
@@ -131,10 +134,11 @@ namespace Character_Creation_Save
                 do
                 {
                     Console.WriteLine("What do you want to modify about the character?");
-                    Console.WriteLine("1. Name | 2. Strength | 3. Dexterity | 4. Happiness | 5. Intelligence | 6. Wealth");
+                    Console.WriteLine("1. Name | 2. Strength | 3. Dexterity | 4. Happiness | 5. Intelligence | 6. Wealth | 7. Exit");
                     Console.WriteLine("You have " + Points + " leftover from the original character creation");
                     Console.Write("Response: ");
-                    if (Convert.ToInt32(Console.ReadLine()) == 1)
+                    response = Convert.ToInt32(Console.ReadLine());
+                    if (response == 1)
                     {
                         Console.Write("Enter new name: ");
                         string temp = character.Name;
@@ -144,37 +148,85 @@ namespace Character_Creation_Save
                         Console.WriteLine("Characters name changed");
                         Console.WriteLine();
                     }
-                    if (Convert.ToInt32(Console.ReadLine()) == 2)
+                    if (response == 2)
                     {
                         Console.Write("Enter the new strength of the character: ");
-                        if ((Points + character.Strength) - Convert.ToInt32(Console.ReadLine()) < 0)
+                        int result = Convert.ToInt32(Console.ReadLine());
+                        if (((Points + character.Strength) - result) >= 0)
                         {
                             Points += character.Strength;
-                            Points = Points - Convert.ToInt32(Console.ReadLine());
-                            character.Strength = Convert.ToInt32(Console.ReadLine());
+                            Points = Points - result;
+                            character.Strength = result;
                             SaveCharacter(character);
                         }
                         else
                         {
                             Console.WriteLine("Overloading point usage");
                         }
-                        Console.WriteLine();
                     }
-                    if (Convert.ToInt32(Console.ReadLine()) == 3)
+                    if (response == 3)
                     {
-
+                        Console.Write("Enter the new Dexterity of the character: ");
+                        int result = Convert.ToInt32(Console.ReadLine());
+                        if (((Points + character.Dexterity) - result) >= 0)
+                        {
+                            Points += character.Dexterity;
+                            Points = Points - result;
+                            character.Dexterity = result;
+                            SaveCharacter(character);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Overloading point usage");
+                        }
                     }
-                    if (Convert.ToInt32(Console.ReadLine()) == 4)
+                    if (response == 4)
                     {
-
+                        Console.Write("Enter the new Happiness of the character: ");
+                        int result = Convert.ToInt32(Console.ReadLine());
+                        if (((Points + character.Happiness) - result) >= 0)
+                        {
+                            Points += character.Happiness;
+                            Points = Points - result;
+                            character.Happiness = result;
+                            SaveCharacter(character);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Overloading point usage");
+                        }
                     }
-                    if (Convert.ToInt32(Console.ReadLine()) == 5)
+                    if (response == 5)
                     {
-
+                        Console.Write("Enter the new Intelligence of the character: ");
+                        int result = Convert.ToInt32(Console.ReadLine());
+                        if (((Points + character.Intelligence) - result) >= 0)
+                        {
+                            Points += character.Happiness;
+                            Points = Points - result;
+                            character.Intelligence = result;
+                            SaveCharacter(character);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Overloading point usage");
+                        }
                     }
-                    if (Convert.ToInt32(Console.ReadLine()) == 6)
+                    if (response == 6)
                     {
-
+                        Console.Write("Enter the new Wealth of the character: ");
+                        int result = Convert.ToInt32(Console.ReadLine());
+                        if (((Points + character.Wealth) - result) >= 0)
+                        {
+                            Points += character.Happiness;
+                            Points = Points - result;
+                            character.Wealth = result;
+                            SaveCharacter(character);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Overloading point usage");
+                        }
                     }
                 } while (response != 7);
             }
@@ -277,6 +329,7 @@ namespace Character_Creation_Save
                 Console.WriteLine("Intelligence: " + sr.ReadLine());
                 Console.WriteLine("Wealth: " + sr.ReadLine());
             }
+            Console.WriteLine();
         }
     }
 }
