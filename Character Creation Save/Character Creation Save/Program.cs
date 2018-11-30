@@ -15,10 +15,10 @@ namespace Character_Creation_Save
             do
             {
                 Console.Clear();
-                Console.WriteLine("1. Create a character");
-                Console.WriteLine("2. Modify a character");
-                Console.WriteLine("3. Delete a character");
-                Console.WriteLine("4. Loading existing character");
+                Console.WriteLine("1. Create a Character");
+                Console.WriteLine("2. Modify a Character");
+                Console.WriteLine("3. Delete a Character");
+                Console.WriteLine("4. Load Character");
                 Console.WriteLine("5. Print Character");
                 Console.WriteLine("6. Exit");
                 answer = Convert.ToInt32(Console.ReadLine());
@@ -295,19 +295,28 @@ namespace Character_Creation_Save
         static Character LoadCharacter(string characterName)
         {
             string Name; int Strength = 0; int Dexterity = 0; int Happiness = 0; int Intelligence = 0; int Wealth = 0;
-
-            string path = AppDomain.CurrentDomain.BaseDirectory + characterName + ".txt";
-            using (StreamReader sr = new StreamReader(path))
+            if (File.Exists(characterName + ".txt"))
             {
-                Name = sr.ReadLine();
-                Strength = Convert.ToInt32(sr.ReadLine());
-                Dexterity = Convert.ToInt32(sr.ReadLine());
-                Happiness = Convert.ToInt32(sr.ReadLine());
-                Intelligence = Convert.ToInt32(sr.ReadLine());
-                Wealth = Convert.ToInt32(sr.ReadLine());
+                string path = AppDomain.CurrentDomain.BaseDirectory + characterName + ".txt";
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    Name = sr.ReadLine();
+                    Strength = Convert.ToInt32(sr.ReadLine());
+                    Dexterity = Convert.ToInt32(sr.ReadLine());
+                    Happiness = Convert.ToInt32(sr.ReadLine());
+                    Intelligence = Convert.ToInt32(sr.ReadLine());
+                    Wealth = Convert.ToInt32(sr.ReadLine());
+                }
+                Character character = new Character(Name, Strength, Dexterity, Happiness, Intelligence, Wealth);
+                return character;
             }
-            Character character = new Character(Name, Strength, Dexterity, Happiness, Intelligence, Wealth);
-            return character;
+            else
+            {
+                Name = "Delete";
+                Console.WriteLine("Character Doesn't exist");
+                Character character = new Character(Name, Strength, Dexterity, Happiness, Intelligence, Wealth);
+                return character;
+            }
         }
 
         static void PrintCharacter(Character character)
