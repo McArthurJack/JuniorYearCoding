@@ -135,7 +135,7 @@ namespace Character_Creation_Save
                 {
                     Console.WriteLine("What do you want to modify about the character?");
                     Console.WriteLine("1. Name | 2. Strength | 3. Dexterity | 4. Happiness | 5. Intelligence | 6. Wealth | 7. Exit");
-                    Console.WriteLine("You have " + Points + " leftover from the original character creation");
+                    Console.WriteLine("You have " + Points + " leftover");
                     Console.Write("Response: ");
                     response = Convert.ToInt32(Console.ReadLine());
                     if (response == 1)
@@ -202,7 +202,7 @@ namespace Character_Creation_Save
                         int result = Convert.ToInt32(Console.ReadLine());
                         if (((Points + character.Intelligence) - result) >= 0)
                         {
-                            Points += character.Happiness;
+                            Points += character.Intelligence;
                             Points = Points - result;
                             character.Intelligence = result;
                             SaveCharacter(character);
@@ -218,7 +218,7 @@ namespace Character_Creation_Save
                         int result = Convert.ToInt32(Console.ReadLine());
                         if (((Points + character.Wealth) - result) >= 0)
                         {
-                            Points += character.Happiness;
+                            Points += character.Wealth;
                             Points = Points - result;
                             character.Wealth = result;
                             SaveCharacter(character);
@@ -239,13 +239,7 @@ namespace Character_Creation_Save
 
         static void SaveCharacter(Character character)
         {
-            string Name = character.Name;
-            int Strength = character.Strength;
-            int Dexterity = character.Dexterity;
-            int Happiness = character.Happiness;
-            int Intelligence = character.Intelligence;
-            int Wealth = character.Wealth;
-            string path = AppDomain.CurrentDomain.BaseDirectory + Name + ".txt";
+            string path = AppDomain.CurrentDomain.BaseDirectory + character.Name + ".txt";
             if (File.Exists(path))
             {
                 Console.Write("Would you like to overwrite?: ");
@@ -253,12 +247,12 @@ namespace Character_Creation_Save
                 {
                     using (StreamWriter sw = new StreamWriter(path))
                     {
-                        sw.WriteLine(Name);
-                        sw.WriteLine(Strength);
-                        sw.WriteLine(Dexterity);
-                        sw.WriteLine(Happiness);
-                        sw.WriteLine(Intelligence);
-                        sw.WriteLine(Wealth);
+                        sw.WriteLine(character.Name);
+                        sw.WriteLine(character.Strength);
+                        sw.WriteLine(character.Dexterity);
+                        sw.WriteLine(character.Happiness);
+                        sw.WriteLine(character.Intelligence);
+                        sw.WriteLine(character.Wealth);
                     }
                     Console.WriteLine("Overwritten");
                 }
@@ -271,12 +265,12 @@ namespace Character_Creation_Save
             {
                 using (StreamWriter sw = new StreamWriter(path))
                 {
-                    sw.WriteLine(Name);
-                    sw.WriteLine(Strength);
-                    sw.WriteLine(Dexterity);
-                    sw.WriteLine(Happiness);
-                    sw.WriteLine(Intelligence);
-                    sw.WriteLine(Wealth);
+                    sw.WriteLine(character.Name);
+                    sw.WriteLine(character.Strength);
+                    sw.WriteLine(character.Dexterity);
+                    sw.WriteLine(character.Happiness);
+                    sw.WriteLine(character.Intelligence);
+                    sw.WriteLine(character.Wealth);
                 }
                 Console.WriteLine("Character was saved");
             }
