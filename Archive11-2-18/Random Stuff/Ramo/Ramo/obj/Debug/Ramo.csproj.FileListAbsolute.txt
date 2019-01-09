@@ -1,7 +1,0 @@
-C:\Users\132333\OneDrive - Academy District 20\Coding\Random Stuff\Ramo\Ramo\bin\Debug\Ramo.exe.config
-C:\Users\132333\OneDrive - Academy District 20\Coding\Random Stuff\Ramo\Ramo\bin\Debug\Ramo.exe
-C:\Users\132333\OneDrive - Academy District 20\Coding\Random Stuff\Ramo\Ramo\bin\Debug\Ramo.pdb
-C:\Users\132333\OneDrive - Academy District 20\Coding\Random Stuff\Ramo\Ramo\obj\Debug\Ramo.csprojAssemblyReference.cache
-C:\Users\132333\OneDrive - Academy District 20\Coding\Random Stuff\Ramo\Ramo\obj\Debug\Ramo.csproj.CoreCompileInputs.cache
-C:\Users\132333\OneDrive - Academy District 20\Coding\Random Stuff\Ramo\Ramo\obj\Debug\Ramo.exe
-C:\Users\132333\OneDrive - Academy District 20\Coding\Random Stuff\Ramo\Ramo\obj\Debug\Ramo.pdb

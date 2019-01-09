@@ -1,7 +1,0 @@
-C:\Users\132333\OneDrive - Academy District 20\Coding\Projects\2D Array\2D Array\bin\Debug\2D Array.exe.config
-C:\Users\132333\OneDrive - Academy District 20\Coding\Projects\2D Array\2D Array\bin\Debug\2D Array.exe
-C:\Users\132333\OneDrive - Academy District 20\Coding\Projects\2D Array\2D Array\bin\Debug\2D Array.pdb
-C:\Users\132333\OneDrive - Academy District 20\Coding\Projects\2D Array\2D Array\obj\Debug\2D Array.csprojAssemblyReference.cache
-C:\Users\132333\OneDrive - Academy District 20\Coding\Projects\2D Array\2D Array\obj\Debug\2D Array.csproj.CoreCompileInputs.cache
-C:\Users\132333\OneDrive - Academy District 20\Coding\Projects\2D Array\2D Array\obj\Debug\2D Array.exe
-C:\Users\132333\OneDrive - Academy District 20\Coding\Projects\2D Array\2D Array\obj\Debug\2D Array.pdb

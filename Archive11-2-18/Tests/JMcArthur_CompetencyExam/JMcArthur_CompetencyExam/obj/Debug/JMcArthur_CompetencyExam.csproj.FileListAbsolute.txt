@@ -1,7 +1,0 @@
-C:\Users\132333\OneDrive - Academy District 20\Coding\Tests\JMcArthur_CompetencyExam\JMcArthur_CompetencyExam\bin\Debug\JMcArthur_CompetencyExam.exe.config
-C:\Users\132333\OneDrive - Academy District 20\Coding\Tests\JMcArthur_CompetencyExam\JMcArthur_CompetencyExam\bin\Debug\JMcArthur_CompetencyExam.exe
-C:\Users\132333\OneDrive - Academy District 20\Coding\Tests\JMcArthur_CompetencyExam\JMcArthur_CompetencyExam\bin\Debug\JMcArthur_CompetencyExam.pdb
-C:\Users\132333\OneDrive - Academy District 20\Coding\Tests\JMcArthur_CompetencyExam\JMcArthur_CompetencyExam\obj\Debug\JMcArthur_CompetencyExam.csprojAssemblyReference.cache
-C:\Users\132333\OneDrive - Academy District 20\Coding\Tests\JMcArthur_CompetencyExam\JMcArthur_CompetencyExam\obj\Debug\JMcArthur_CompetencyExam.csproj.CoreCompileInputs.cache
-C:\Users\132333\OneDrive - Academy District 20\Coding\Tests\JMcArthur_CompetencyExam\JMcArthur_CompetencyExam\obj\Debug\JMcArthur_CompetencyExam.exe
-C:\Users\132333\OneDrive - Academy District 20\Coding\Tests\JMcArthur_CompetencyExam\JMcArthur_CompetencyExam\obj\Debug\JMcArthur_CompetencyExam.pdb
