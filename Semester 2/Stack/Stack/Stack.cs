@@ -15,7 +15,10 @@ namespace Stack
             try
             {
                 int temp;
-
+                int count = holder.Count();
+                temp = holder[count-1];
+                holder.Remove(count - 1);
+                return temp;
             }
             catch (System.ArgumentOutOfRangeException e)
             {
@@ -25,14 +28,16 @@ namespace Stack
 
         public void Push(int val)
         {
-
+            holder.Add(val);
         }
 
         public int peek()
         {
             try
             {
-
+                int count = holder.Count();
+                int temp = holder[count - 1];
+                return temp;
             }
             catch (System.ArgumentOutOfRangeException e)
             {

@@ -38,9 +38,12 @@ namespace Stack
                 //Push
                 if (answer == 2)
                 {
+                    int addnumber;
+                    Console.Write("Enter the number you would like to add: ");
+                    addnumber = Int32.TryParse(Console.ReadLine());
                     try
                     {
-
+                        
                     }
                     catch
                     {
