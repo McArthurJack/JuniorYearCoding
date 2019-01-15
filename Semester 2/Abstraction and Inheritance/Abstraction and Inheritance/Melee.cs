@@ -22,6 +22,31 @@ namespace Abstraction_and_Inheritance.WeaponClasses
             this.sharpness = sharpness;
         }
 
+        public virtual void MeleeStats()
+        {
+            string temp;
+            if (isMetal == false)
+                temp = "is not";
+            else
+                temp = "is";
+            Console.WriteLine("The weight of your melee weapon is " + weight + ".");
+            Console.WriteLine("The size of your melee weapon is " + size + ".");
+            Console.WriteLine("The melee weapon " + temp + " metal.");
+            Console.WriteLine("The damage of your melee weapon is " + damage + ".");
+            if (isPosion == false)
+                temp = "is not";
+            else
+                temp = "is";
+            Console.WriteLine("The melee weapon " + temp + " posioned.");
+            Console.WriteLine("The lenght of the blade is " + bladelength);
+            if (isDual == false)
+                temp = "is not";
+            else
+                temp = "is";
+            Console.WriteLine("The melee weapon " + temp + " dual wield.");
+            Console.WriteLine("The sharpness of the melee weapon is " + sharpness + ".");
+        }
+
         public override void DropSound() { }
 
         public override void StatsItem() { }

@@ -18,7 +18,7 @@ namespace Abstraction_and_Inheritance.WeaponClasses
 
         public override void DropSound()
         {
-            Console.WriteLine("Wow. Pepega Firearm dropped.");
+            Console.WriteLine("PEPEGA FIREARM DROPPED");
         }
 
         public override void StatsItem()

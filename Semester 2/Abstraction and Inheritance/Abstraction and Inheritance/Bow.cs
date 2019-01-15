@@ -20,7 +20,7 @@ namespace Abstraction_and_Inheritance.WeaponClasses
 
         public override void DropSound()
         {
-            Console.WriteLine("A shiny bow dropped.");
+            Console.WriteLine("SHINY BOW DROPPED");
         }
 
         public override void StatsItem()
