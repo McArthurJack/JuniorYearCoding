@@ -28,11 +28,15 @@ namespace Stack
                     try
                     {
                         int number = Stacker.Pop();
-                        Console.WriteLine(number + "was popped");
+                        Console.WriteLine(number + " was popped");
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadLine();
                     }
                     catch
                     {
                         Console.WriteLine("There is no elements in the Stack");
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadLine();
                     }
                 }
                 //Push
@@ -40,14 +44,19 @@ namespace Stack
                 {
                     int addnumber;
                     Console.Write("Enter the number you would like to add: ");
-                    addnumber = Int32.TryParse(Console.ReadLine());
+                    Int32.TryParse(Console.ReadLine(), out addnumber);
                     try
                     {
-                        
+                        Stacker.Push(addnumber);
+                        Console.WriteLine(addnumber + " was added to the stack.");
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadLine();
                     }
                     catch
                     {
-
+                        Console.WriteLine("You must enter a number not anything else.");
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadLine();
                     }
                 }
                 //Peek
@@ -55,11 +64,16 @@ namespace Stack
                 {
                     try
                     {
-
+                        int peek = Stacker.peek();
+                        Console.WriteLine(peek + " was the top element.");
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadLine();
                     }
                     catch
                     {
-
+                        Console.WriteLine("There is no elements in the Stack");
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadLine();
                     }
                 }
                 //Print
@@ -67,11 +81,15 @@ namespace Stack
                 {
                     try
                     {
-
+                        Stacker.Print();
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadLine();
                     }
                     catch
                     {
-
+                        Console.WriteLine("There is no elements in the Stack");
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadLine();
                     }
                 }
                 Console.WriteLine();

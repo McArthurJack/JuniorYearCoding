@@ -17,7 +17,7 @@ namespace Stack
                 int temp;
                 int count = holder.Count();
                 temp = holder[count-1];
-                holder.Remove(count - 1);
+                holder.Remove(temp);
                 return temp;
             }
             catch (System.ArgumentOutOfRangeException e)
@@ -47,7 +47,10 @@ namespace Stack
 
         public void Print()
         {
-
+            for (int i = 0; i < holder.Count; i++)
+            {
+                Console.Write(holder[i] + ", ");
+            }
         }
     }
 }
