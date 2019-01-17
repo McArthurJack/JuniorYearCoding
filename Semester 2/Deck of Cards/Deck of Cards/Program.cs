@@ -8,39 +8,28 @@ namespace Deck_of_Cards
 {
     class Program
     {
+        public int player1count = 0;
+        public int player2count = 0;
 
         static void Main(string[] args)
         {
             List<Card> Hand1 = new List<Card>();
             List<Card> Hand2 = new List<Card>();
-
             Deck BlackJack = new Deck();
             BlackJack.Shuffle();
-
-            Console.WriteLine("Player 1 Hand");
-            Card temp;
-            Hand1.Add(temp = BlackJack.Draw());
-            Hand1.Add(temp);
-            temp.Print();
-            Hand1.Add(temp = BlackJack.Draw());
-            temp.Print();
-            Console.ReadLine();
-
-            Console.Clear();
-            Console.WriteLine("Discard Pile");
-            for (int i = 0; i < Hand1.Count; i++)
+            int decksize = BlackJack.DeckofCards.Count();
+            do
             {
-                BlackJack.Discard(Hand1[i]);
-                Hand1.RemoveAt(i);
-            }
-            BlackJack.PrintDiscard();
+                decksize = BlackJack.DeckofCards.Count();
+            } while (decksize != 0);
+
             Console.ReadLine();
         }
 
-        static void GUI()
+        static void GUI(int playernumber)
         {
-            Console.WriteLine();
-            Console.WriteLine("");
+            Console.WriteLine("Player " + playernumber + " turn");
+
         }
     }
 }

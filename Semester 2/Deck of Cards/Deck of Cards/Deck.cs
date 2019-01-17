@@ -31,22 +31,6 @@ namespace Deck_of_Cards
                 DeckofCards.Add(temp[x]);
                 temp.RemoveAt(x);
             }
-
-            for (int i = DeckofCards.Count - 1; i >= 0; i--)
-            {
-                Random rand = new Random();
-                int x = rand.Next(0, i);
-                temp.Add(DeckofCards[x]);
-                DeckofCards.RemoveAt(x);
-            }
-
-            for (int i = temp.Count - 1; i >= 0; i--)
-            {
-                Random rand = new Random();
-                int x = rand.Next(0, i);
-                DeckofCards.Add(temp[x]);
-                temp.RemoveAt(x);
-            }
         }
 
         public Card Draw()
