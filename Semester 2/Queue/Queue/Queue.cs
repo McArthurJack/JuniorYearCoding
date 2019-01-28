@@ -50,6 +50,30 @@ namespace Queue
                 {
                     Console.Write(holder[i] + ", ");
                 }
+                Console.WriteLine();
+            }
+            catch (System.ArgumentOutOfRangeException e)
+            {
+                throw e;
+            }
+        }
+
+        public int Search(int val)
+        {
+            try
+            {
+                int temp = -1;
+                int counter = 0;
+                for (int i = 0; i < holder.Count; i++)
+                {
+                    if (val == holder[i])
+                    {
+                        temp = holder.Count()-counter-1;
+                        break;
+                    }
+                    counter++;
+                }
+                return temp;
             }
             catch (System.ArgumentOutOfRangeException e)
             {

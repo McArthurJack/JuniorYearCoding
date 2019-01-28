@@ -25,8 +25,8 @@ namespace Queue
             myQueue.EnQueue(9);
             myInt = myQueue.DeQueue();
             myQueue.Print();
-
-            Console.ReadLine();
+            myInt = myQueue.Search(9);
+            Console.WriteLine(myInt);
         }
     }
 }
