@@ -10,26 +10,47 @@ namespace Reverse_a_list
     {
         static void Main(string[] args)
         {
-            List<int> Reverse = new List<int>();
-            for (int i = 1; i <= 20; i++)
+            List<char> CharString = new List<char>();
+            string Pal = "";
+            string PalReverse = "";
+
+            Console.Write("Test for a Palindrome: ");
+            Pal = Console.ReadLine();
+            Pal = Pal.ToLower();
+
+            for (int i = 0; i < Pal.Length; i++)
             {
-                Reverse.Add(i);
+                CharString.Add(Pal[i]);
             }
 
-            for (int i = 0; i < Reverse.Count; i++)
-                Console.Write(Reverse[i] + ", ");
+            for (int i = 0; i < CharString.Count; i++)
+            {
+                if (CharString[i] == ' ')
+                {
+                    CharString.RemoveAt(i);
+                }
+            }
+
+            Pal = "";
+
+            for (int i = 0; i < CharString.Count; i++)
+            {
+                Pal += CharString[i];
+            }
+
+            for (int i = CharString.Count-1; i >= 0; i--)
+            {
+                char temp = CharString[i];
+                PalReverse += temp;
+            }
+
+            Console.WriteLine("Your orignial text: " + Pal);
+            Console.WriteLine("Backwards the word is: " + PalReverse);
             Console.WriteLine();
-
-
-            for (int i = Reverse.Count-2; i >= 0; i--)
-            {
-                int temp = Reverse[i];
-                Reverse.RemoveAt(i);
-                Reverse.Add(temp);
-            }
-
-            for (int i = 0; i < Reverse.Count; i++)
-                Console.Write(Reverse[i] + ", ");
+            if (Pal == PalReverse)
+                Console.WriteLine("The text is a Palindrome");
+            else
+                Console.WriteLine("The text is not a Palindrome");
             Console.ReadLine();
         }
     }
