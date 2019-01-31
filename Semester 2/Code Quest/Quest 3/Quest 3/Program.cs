@@ -13,7 +13,7 @@ namespace Quest_3
         {
             List<string> str = new List<string>();
             string temp = "";
-            string path = "C:\\Users\\132333\\Desktop\\CodeQuest\\" + @"Prob03.in.txt";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\CodeQuest\\" + "Prob03.in.txt";
             using (StreamReader sr = new StreamReader(path))
             {
                 sr.ReadLine();

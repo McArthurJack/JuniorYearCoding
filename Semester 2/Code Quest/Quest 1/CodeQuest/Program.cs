@@ -17,10 +17,11 @@ namespace CodeQuest
 
         static void StreamReader()
         {
-            string path = "C:\\Users\\132333\\Desktop\\CodeQuest\\" + @"Prob01.in.txt";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\CodeQuest\\" + "Prob01.in.txt";
             using (StreamReader sr = new StreamReader(path))
             {
-                for (int i = 0; i < 7; i++)
+                int length = Convert.ToInt32(sr.ReadLine());
+                for (int i = 0; i < length; i++)
                 {
                     int Grade = Convert.ToInt32(sr.ReadLine());
                     if (Grade >= 70)

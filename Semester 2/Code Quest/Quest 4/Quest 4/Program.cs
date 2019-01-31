@@ -12,8 +12,7 @@ namespace Quest_4
         static void Main(string[] args)
         {
             List<string> str = new List<string>();
-            List<Choice> match = new List<Choice>();
-            string path = "C:\\Users\\132333\\Desktop\\CodeQuest\\" + @"Prob04.in.txt";
+            List<Choice> match = new List<Choice>(); string path = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\CodeQuest\\" + "Prob04.in.txt";
 
             using (StreamReader sr = new StreamReader(path))
             {

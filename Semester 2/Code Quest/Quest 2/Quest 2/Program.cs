@@ -14,7 +14,7 @@ namespace Quest_2
             List<string> Liststring = new List<string>();
             int counter = 0;
             string temp = "";
-            string path = "C:\\Users\\132333\\Desktop\\CodeQuest\\" + @"Prob02.in.txt";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\..\\..\\CodeQuest\\" + "Prob02.in.txt";
             using (StreamReader sr = new StreamReader(path)) 
             {
                 int useless = Convert.ToInt32(sr.ReadLine());
