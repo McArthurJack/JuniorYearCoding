@@ -28,7 +28,7 @@ namespace Queue
             myInt = myQueue.Search(9);
             Console.WriteLine(myInt);
 
-             
+            Queue<Currencies> currencies = new Queue<Currencies>(); 
         }
     }
 }
