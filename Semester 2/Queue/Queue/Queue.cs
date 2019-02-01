@@ -6,47 +6,25 @@ using System.Threading.Tasks;
 
 namespace Queue
 {
-    class Queue
+    class Queue<T> : IEmptyable, IPrintable, ICountable where T : IComparable
     {
-        List<int> holder = new List<int>();
+        List<T> holder = new List<T>();
 
-        public int DeQueue()
+        public int Count()
         {
-            try
-            {
-                int temp = holder[0];
-                holder.RemoveAt(0);
-                return temp;
-            }
-            catch (System.ArgumentOutOfRangeException e)
-            {
-                throw e;
-            }
+            return holder.Count();
         }
 
-        public void EnQueue (int val)
+        public void Empty()
         {
-            holder.Add(val);
-        }
-
-        public int Peek()
-        {
-            try
-            {
-                int temp = holder[0];
-                return temp;
-            }
-            catch (System.ArgumentOutOfRangeException e)
-            {
-                throw e;
-            }
+            holder.Clear();
         }
 
         public void Print()
         {
             try
             {
-                for (int i = holder.Count-1; i >= 0; i--)
+                for (int i = holder.Count - 1; i >= 0; i--)
                 {
                     Console.Write(holder[i] + ", ");
                 }
@@ -58,7 +36,39 @@ namespace Queue
             }
         }
 
-        public int Search(int val)
+        public void EnQueue (T val)
+        {
+            holder.Add(val);
+        }
+
+        public T DeQueue()
+        {
+            try
+            {
+                T temp = holder[0];
+                holder.RemoveAt(0);
+                return temp;
+            }
+            catch (System.ArgumentOutOfRangeException e)
+            {
+                throw e;
+            }
+        }
+
+        public T Peek()
+        {
+            try
+            {
+                T temp = holder[0];
+                return temp;
+            }
+            catch (System.ArgumentOutOfRangeException e)
+            {
+                throw e;
+            }
+        }
+
+        public int Search(T val)
         {
             try
             {
@@ -66,9 +76,9 @@ namespace Queue
                 int counter = 0;
                 for (int i = 0; i < holder.Count; i++)
                 {
-                    if (val == holder[i])
+                    if (val.CompareTo(holder[i]) == 0)
                     {
-                        temp = holder.Count()-counter-1;
+                        temp = holder.Count() - counter - 1;
                         break;
                     }
                     counter++;

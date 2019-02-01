@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E23F4519-2DDD-4878-A9FA-30F4CCD3747F}</ProjectGuid>
+    <ProjectGuid>{86AD7CE2-A9EE-4D45-9B9A-C1250AB33AC8}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Queue</RootNamespace>
-    <AssemblyName>Queue</AssemblyName>
+    <RootNamespace>Quest_17</RootNamespace>
+    <AssemblyName>Quest 17</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,11 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Currencies.cs" />
-    <Compile Include="Interfaces.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queue.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

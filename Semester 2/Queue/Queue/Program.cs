@@ -11,7 +11,7 @@ namespace Queue
         static void Main(string[] args)
         {
             int myInt;
-            Queue myQueue = new Queue();
+            Queue<int> myQueue = new Queue<int>();
 
             myQueue.EnQueue(8);
             myQueue.EnQueue(6);
@@ -27,6 +27,8 @@ namespace Queue
             myQueue.Print();
             myInt = myQueue.Search(9);
             Console.WriteLine(myInt);
+
+             
         }
     }
 }
