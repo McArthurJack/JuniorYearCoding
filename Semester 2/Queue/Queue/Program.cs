@@ -12,6 +12,7 @@ namespace Queue
         {
             int myInt;
             Queue<int> myQueue = new Queue<int>();
+            Random rand = new Random();
 
             myQueue.EnQueue(8);
             myQueue.EnQueue(6);
@@ -28,7 +29,9 @@ namespace Queue
             myInt = myQueue.Search(9);
             Console.WriteLine(myInt);
 
-            Queue<Currencies> currencies = new Queue<Currencies>(); 
+            Queue<Currencies> currencies = new Queue<Currencies>();
+
+            currencies.EnQueue(new Currencies(rand.Next(0, 100), rand.Next(0, 100), rand.Next(0, 100)));
         }
     }
 }
