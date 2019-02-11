@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Problem_2
 {
@@ -11,70 +12,105 @@ namespace Problem_2
     {
         static void Main(string[] args)
         {
-            List<string> Prob2 = new List<string>();
-            List<int> Work = new List<int>();
-            string result;
-            string temp;
-            string temp2;
-            string temp3;
-            int counter = 0;
             string path = "..\\..\\..\\..\\Problems\\" + @"Prob02.in_.txt";
+            string result;
+            int temp = 0;
+            int counter = 0;
+            int oldcounter = 0;
+            int caseSwitch = 0;
+            bool check = false;
+            List<char> Error = new List<char>() { '=', '(', '%', '_', '^' };
+            List<int> work = new List<int>();
+
             using (StreamReader sr = new StreamReader(path))
             {
                 while ((result = sr.ReadLine()) != null)
                 {
-                    Prob2.Add(result);
-                }
-            }
-
-            for (int i = 0; i < Prob2.Count; i++)
-            {
-                counter = 0;
-                for (int j = 0; j < Prob2[i].Length-1; j++)
-                {
-                    temp2 = " ";
-                    if (temp2.Contains(' '))
-                    {
-
-                    }
-                    else
-                        break;
-                    temp = Prob2[i];
-                    if (temp[j] == ' ')
-                    {
-                        temp2 = temp.Substring(0, counter);
-                        counter++;
-                        temp = temp.Substring(counter);
-                        Work.Add(Convert.ToInt32(temp2));
-                        temp2 = "";
-                    }
-                    else
-                        counter++;
-                }
-                for (int j = 0; j < Work.Count-1; j++)
-                {
-                    if (Work[j] < Work[j+1])
-                    {
-                        counter++;
-                    }
-                    if (counter == Work.Count())
-                    {
-                        Console.WriteLine("The numbers are in ascending order");
-                    }
-                }
-                for (int j = 0; j < Work.Count-1; j++)
-                {
+                    work.Clear();
                     counter = 0;
-                    if (Work[j] > Work[j + 1])
+                    for (int i = 0; i < Error.Count; i++)
                     {
-                        counter++;
+                        if (result.Contains(Error[i]))
+                        {
+                            caseSwitch = 1;
+                            break;
+                        }
                     }
-                    if (counter == Work.Count())
+                    for (int j = 0; j < result.Length; j++)
                     {
-                        Console.WriteLine("The numbers are in descending order");
+                        if (result[j] == '-')
+                        {
+                            if (result[j - 1] == ' ')
+                            {
+                                if (result[j + 1] == ' ')
+                                    caseSwitch = 1;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (caseSwitch != 1)
+                    {
+                        for (int i = 0; i < result.Length; i++)
+                        {
+                            if (result[i] == ' ')
+                            {
+                                if (result.Substring(counter + 1) == "")
+                                {
+                                    temp = Convert.ToInt32(result.Substring(oldcounter));
+                                    check = true;
+                                }
+                                if (check == false)
+                                {
+                                    temp = Convert.ToInt32(result.Substring(oldcounter, counter));
+                                }
+                                oldcounter = counter;
+                                check = false;
+                                work.Add(temp);
+                            }
+                            else
+                                counter++;
+                        }
+                    }
+
+                    if (caseSwitch != 1)
+                    {
+                        counter = 0;
+                        for (int i = 0; i < work.Count-1; i++)
+                        {
+                            if (work[i] < work[i + 1])
+                                counter++;
+                            if (counter == work.Count)
+                                caseSwitch = 2;
+                        }
+                        counter = 0;
+                        for (int i = 0; i < work.Count-1; i++)
+                        {
+                            if (work[i] > work[i + 1])
+                                counter++;
+                            if (counter == work.Count)
+                                caseSwitch = 3;
+                        }
+                    }
+
+                    switch (caseSwitch)
+                    {
+                        case 1:
+                            Console.WriteLine("The input is invalid");
+                            break;
+                        case 2:
+                            Console.WriteLine("The numbers are in ascending order");
+                            break;
+                        case 3:
+                            Console.WriteLine("The numbers are in descending order");
+                            break;
+                        default:
+                            Console.WriteLine("The numbers are in a random order");
+                            break;
                     }
                 }
             }
+
             Console.ReadLine();
         }
     }

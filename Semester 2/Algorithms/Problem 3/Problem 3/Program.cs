@@ -13,7 +13,6 @@ namespace Problem_3
         {
             List<string> Decodes = new List<string>();
             string cipher = "";
-            string jj = "";
             string result;
             string path = "..\\..\\..\\..\\Problems\\" + @"Prob03.in_.txt";
             using (StreamReader sr = new StreamReader(path))
@@ -27,12 +26,11 @@ namespace Problem_3
 
             for (int i = 0; i < Decodes.Count; i++)
             {
-                for (int j = cipher.Length; j >= 0; j--)
+                for (int j = cipher.Length; j > 0; j--)
                 {
-                    jj = Convert.ToString(j);
-                    if (Decodes[i].Contains(jj))
+                    if (Decodes[i].Contains(Convert.ToString(j)))
                     {
-                        Decodes[i] = Decodes[i].Replace(jj, Convert.ToString(cipher[j - 1]));
+                        Decodes[i] = Decodes[i].Replace(Convert.ToString(j), Convert.ToString(cipher[j - 1]));
                     }
                 }
                 Decodes[i] = Decodes[i].Replace("-", "");
