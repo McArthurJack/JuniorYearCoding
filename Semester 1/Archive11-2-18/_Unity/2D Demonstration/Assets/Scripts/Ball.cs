@@ -49,10 +49,6 @@ public class Ball : MonoBehaviour {
             //timer = 0f;
         }
 
-        float PositionColorx = ((transform.position.x + 1)/2);
-        double PositionColory = ((transform.position.y + 1.75)/3.5);
-        GetComponent<SpriteRenderer>().color = new Color(PositionColorx, PositionColory, 0f);
-
         timed += Time.deltaTime;
         if (timed > 6)
         {
