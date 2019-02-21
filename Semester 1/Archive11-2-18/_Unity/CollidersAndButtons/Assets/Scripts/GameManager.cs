@@ -34,6 +34,4 @@ public class GameManager
             instance.Update();
         }
     }
-
-
 }
