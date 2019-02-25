@@ -56,54 +56,54 @@ namespace LINQ
 
         static void PrimeFinderSQL()
         {
-            List<int> Prime = new List<int>() { 2, 3, 5, 7, 11};
+            List<int> Prime = new List<int>() { 2, 3, 5, 7};
             List<int> Test = new List<int>();
 
             for (int j = 0; j < 3; j++)
             {
-                for (int i = Prime[Prime.Count-1] + 1; i < Math.Pow(Prime[Prime.Count - 1], 2); i++)
+                Test.Clear();
+                for (int i = Prime[Prime.Count-1] + 2; i < Math.Pow(Prime[Prime.Count - 1], 2); i+=2)
                     Test.Add(i);
                 Test = Test.Where(t => !Prime.Any(b => t % b == 0)).ToList();
                 Prime = Prime.Concat(Test).ToList();
             }
 
-            //Prime.ForEach(t =>
-            //{
-            //    Console.Write(t + " ");
-            //});
-            Console.WriteLine(Prime[Prime.Count - 1]);
+            Prime.ForEach(t =>
+            {
+                Console.Write(t + " ");
+            });
             Console.WriteLine(Prime.Count);
         }
 
         static void PrimeFinder()
         {
 
-            List<int> Prime = new List<int>() { 2, 3, 5, 7, 11 };
+            List<int> Prime = new List<int>() { 2, 3, 5, 7 };
             List<int> Test = new List<int>();
             int counter = 0;
             int counter1 = 0;
 
-            for (int j = 0; j < 2; j++)
+            for (int i = 0; i < 3; i++)
             {
                 Test.Clear();
-                for (int i = Prime[Prime.Count - 1] + 1; i < Math.Pow(Prime[Prime.Count - 1], 2); i++)
-                    Test.Add(i);
-                for (int i = 0; i < Test.Count; i++)
+                for (int j = Prime[Prime.Count - 1] + 1; j < Math.Pow(Prime[Prime.Count - 1], 2); j += 2)
+                    Test.Add(j);
+                for (int j = 0; j < Test.Count; j++)
                 {
-                    for (int p = 0; p < Prime.Count; p++)
+                    counter = 0;
+                    counter1 = 0;
+                    for (int o = 0; o < Prime.Count; o++)
                     {
-                        if (Test[i] % Prime[p] != 0)
+                        if (Test[j] % Prime[o] == 0)
+                            counter++;
+                        else
                         {
                             counter++;
                             counter1++;
                         }
-                        else
-                        {
-                            counter++;
-                        }
                     }
-                    if (counter == counter1)
-                        Prime.Add(Test[i]);
+                    if (counter1 == counter)
+                        Prime.Add(Test[j]);
                 }
             }
 
@@ -111,6 +111,7 @@ namespace LINQ
             {
                 Console.Write(t + " ");
             });
+            Console.WriteLine(Prime.Count);
         }
     }
 }
