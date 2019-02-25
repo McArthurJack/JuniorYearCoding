@@ -7,6 +7,8 @@ public class Astroids : MonoBehaviour {
     public Vector3 velocity = new Vector3(0, 0, 0);
     float speed = 4f;
 
+    float timer = 0;
+
     // Use this for initialization
     void Start()
     {
@@ -18,5 +20,11 @@ public class Astroids : MonoBehaviour {
     {
         velocity.Normalize();
         transform.position += velocity * Time.deltaTime * speed;
+        timer += 1 * Time.deltaTime;
+        if (timer >= 10)
+        {
+            timer = 0;
+            Destroy(gameObject);
+        }
     }
 }

@@ -58,10 +58,32 @@ public class Ship : MonoBehaviour {
 
         if (timer >= 2)
         {
-            timer = 0f;
+            int switchnumber = Random.Range(0, 4);
             GameObject newBall = Instantiate(Astroid);
-            newBall.transform.position = new Vector3(transform.position.x + Random.Range(-4f, 4f), transform.position.y + Random.Range(-4f, 4f), 1);
-            newBall.GetComponent<Astroids>().velocity = new Vector3(transform.position.x - Astroid.transform.position.x, transform.position.y - Astroid.transform.position.y, transform.position.z);
+            switch (switchnumber)
+            {
+                case 1:
+                    newBall.transform.position = new Vector3(transform.position.x + 4f, transform.position.y, 1);
+                    newBall.GetComponent<Astroids>().velocity = new Vector3(-1 * transform.position.x, transform.position.y, -1 * transform.position.z);
+                    timer = 0;
+                    break;
+                case 2:
+                    newBall.transform.position = new Vector3(transform.position.x - 4f, transform.position.y, 1);
+                    newBall.GetComponent<Astroids>().velocity = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                    timer = 0;
+                    break;
+                case 3:
+                    newBall.transform.position = new Vector3(transform.position.x, transform.position.y + 4f, 1);
+                    newBall.GetComponent<Astroids>().velocity = new Vector3(transform.position.x, -1 * transform.position.y, transform.position.z);
+                    timer = 0;
+                    break;
+                case 4:
+                    newBall.transform.position = new Vector3(transform.position.x, transform.position.y - 4f, 1);
+                    newBall.GetComponent<Astroids>().velocity = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                    timer = 0;
+                    break;
+
+            }
         }
     }
 
