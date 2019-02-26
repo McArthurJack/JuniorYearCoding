@@ -59,11 +59,18 @@ namespace LINQ
             List<int> Prime = new List<int>() { 2, 3, 5, 7};
             List<int> Test = new List<int>();
 
-            for (int j = 0; j < 3; j++)
+            for (int j = 0; j < 4; j++)
             {
                 Test.Clear();
                 for (int i = Prime[Prime.Count-1] + 2; i < Math.Pow(Prime[Prime.Count - 1], 2); i+=2)
-                    Test.Add(i);
+                {
+                    if (i % 5 == 0)
+                    {
+
+                    }
+                    else
+                        Test.Add(i);
+                }
                 Test = Test.Where(t => !Prime.Any(b => t % b == 0)).ToList();
                 Prime = Prime.Concat(Test).ToList();
             }
