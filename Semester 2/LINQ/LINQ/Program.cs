@@ -59,7 +59,7 @@ namespace LINQ
             List<int> Prime = new List<int>() { 2, 3, 5, 7};
             List<int> Test = new List<int>();
 
-            for (int j = 0; j < 3; j++)
+            for (int j = 0; j < 4; j++)
             {
                 Test.Clear();
                 for (int i = Prime[Prime.Count-1] + 1; i < Math.Pow(Prime[Prime.Count - 1], 2); i++)
