@@ -26,25 +26,25 @@ namespace Sudoku
         public SudokuBoard()
         {
             Board = new int[9, 9] {
-                {4,3,5,2,6,9,7,8,1 },
-                {6,8,2,5,7,1,4,9,3},
-                {1,9,7,8,3,4,5,6,2 },
-                {8,2,6,1,9,5,3,4,7 },
-                {3,7,4,6,8,2,9,1,5 },
-                {9,5,1,7,4,3,6,2,8 },
-                {5,1,9,3,2,6,8,7,4 },
-                {2,4,8,9,5,7,1,3,6 },
-                {7,6,3,4,1,8,2,5,9 }};
+                {0,0,0,2,6,0,7,0,1 },
+                {6,8,0,0,7,0,0,9,0},
+                {1,9,0,0,0,4,5,0,0 },
+                {8,2,0,1,0,0,0,4,0 },
+                {0,0,4,6,0,2,9,0,0 },
+                {0,5,0,0,0,3,0,2,8 },
+                {0,0,9,3,0,0,0,7,4 },
+                {0,4,0,0,5,0,0,3,6 },
+                {7,0,3,0,1,8,0,0,0 }};
             //Board = new int[9, 9] {
-            //    {0,0,0,2,6,0,7,0,1 },
-            //    {6,8,0,0,7,0,0,9,0},
-            //    {1,9,0,0,0,4,5,0,0 },
-            //    {8,2,0,1,0,0,0,4,0 },
-            //    {0,0,4,6,0,2,9,0,0 },
-            //    {0,5,0,0,0,3,0,2,8 },
-            //    {0,0,9,3,0,0,0,7,4 },
-            //    {0,4,0,0,5,0,0,3,6 },
-            //    {7,0,3,0,1,8,0,0,0 }};
+            //    {4,3,5,2,6,9,7,8,1 },
+            //    {6,8,2,5,7,1,4,9,3},
+            //    {1,9,7,8,3,4,5,6,2 },
+            //    {8,2,6,1,9,5,3,4,7 },
+            //    {3,7,4,6,8,2,9,1,5 },
+            //    {9,5,1,7,4,3,6,2,8 },
+            //    {5,1,9,3,2,6,8,7,4 },
+            //    {2,4,8,9,5,7,1,3,6 },
+            //    {7,6,3,4,1,8,2,5,9 }};
         }
 
         /// <summary>
@@ -119,7 +119,42 @@ namespace Sudoku
                 Verify.Clear();
             }
             //Check all boxes in the board, make sure they contain ONLY values 1-9. No duplicates, no exclusions
-
+            for (int p = 0; p < 3; p++)
+            {
+                int temp = 0;
+                int end = 3;
+                if (p == 1)
+                {
+                    temp = 3;
+                    end = 6;
+                }
+                if (p == 2)
+                {
+                    temp = 6;
+                    end = 9;
+                }
+                for (int i = 1; i < 10; i++)
+                {
+                    for (int j = temp; j < end; j++)
+                    {
+                        Verify.Add(Board[i - 1, j]);
+                    }
+                    if (i % 3 == 0)
+                    {
+                        Verify = Verify.OrderBy(x => x).ToList();
+                        for (int o = 0; o < Verify.Count; o++)
+                        {
+                            if (Verify[o] == o + 1)
+                            {
+                            }
+                            else
+                                return false;
+                        }
+                        Verify.Clear();
+                    }
+                }
+            }
+            return true;
         }
 
         /// <summary>
@@ -143,17 +178,69 @@ namespace Sudoku
         /// <returns>List of valid integers for the given row and column</returns>
         public List<int> FindLegalDigits(int row, int col)
         {
-            throw new NotImplementedException();
 
             //Create list of all possible digits (1-9)
-
+            List<int> Solutions = new List<int>();
+            for (int e = 1; e < 10; e++)
+            {
+                Solutions.Add(e);
+            }
             //Remove from the list all elements in the row
-
+            for (int e = 0; e < 9; e++)
+            {
+                Solutions = Solutions.Where(x => x != Board[e, row]).ToList();
+            }
             //Remove from the list all elements in the column
-
+            for (int e = 0; e < 9; e++)
+            {
+                Solutions = Solutions.Where(x => x != Board[col, e]).ToList();
+            }
             //remove from the list all elements in the box
-
+            List<int> Verify = new List<int>();
+            int i = 0;
+            int j = 0;
+            int endi = 3;
+            int endj = 3;
+            if (col < 4)
+            {
+                i = 0;
+                endi = 3;
+            }
+            else if (col > 6)
+            {
+                i = 7;
+                endi = 10;
+            }
+            else
+            {
+                i = 3;
+                endi = 7;
+            }
+            if (row < 4)
+            {
+                j = 0;
+                endj = 3;
+            }
+            else if (row > 6)
+            {
+                j = 7;
+                endj = 10;
+            }
+            else
+            {
+                j = 3;
+                endj = 7;
+            }
+            for (int o = i; o < endi; o++)
+            {
+                for (int e = j; e < endj; e++)
+                {
+                    Verify.Add(Board[o, e]);
+                }
+            }
+            Solutions = Solutions.Where(x => !Verify.Any(y => x == y)).ToList();
             //return the list
+            return Solutions;
         }
 
         /// <summary>
