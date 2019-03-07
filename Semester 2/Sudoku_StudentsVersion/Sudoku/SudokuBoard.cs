@@ -201,35 +201,35 @@ namespace Sudoku
             int j = 0;
             int endi = 3;
             int endj = 3;
-            if (col < 4)
+            if (col < 3)
             {
                 i = 0;
                 endi = 3;
             }
-            else if (col > 6)
+            else if (col > 5)
             {
-                i = 7;
-                endi = 10;
+                i = 6;
+                endi = 9;
             }
             else
             {
                 i = 3;
-                endi = 7;
+                endi = 6;
             }
-            if (row < 4)
+            if (row < 3)
             {
                 j = 0;
                 endj = 3;
             }
-            else if (row > 6)
+            else if (row > 5)
             {
-                j = 7;
-                endj = 10;
+                j = 6;
+                endj = 9;
             }
             else
             {
                 j = 3;
-                endj = 7;
+                endj = 6;
             }
             for (int o = i; o < endi; o++)
             {
