@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz", "Quiz\Quiz.csproj", "{E43CEAE5-CA8C-489D-93C3-14DECD2485E7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz 2", "Quiz 2\Quiz 2.csproj", "{C4A35780-7D20-4937-8252-75A9E9788E84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E43CEAE5-CA8C-489D-93C3-14DECD2485E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E43CEAE5-CA8C-489D-93C3-14DECD2485E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E43CEAE5-CA8C-489D-93C3-14DECD2485E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E43CEAE5-CA8C-489D-93C3-14DECD2485E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4A35780-7D20-4937-8252-75A9E9788E84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A35780-7D20-4937-8252-75A9E9788E84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4A35780-7D20-4937-8252-75A9E9788E84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4A35780-7D20-4937-8252-75A9E9788E84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3FCEA83C-579E-4CC3-8D05-86AE0610E87B}
+		SolutionGuid = {4437869A-F1DC-47F0-B25B-66FB4253B06C}
 	EndGlobalSection
 EndGlobal

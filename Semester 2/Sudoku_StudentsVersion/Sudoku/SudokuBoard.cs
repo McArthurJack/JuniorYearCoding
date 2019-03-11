@@ -57,9 +57,9 @@ namespace Sudoku
         /// Use this data to parse a line into the board variable.
         /// </summary>
         /// <param name="fileName">Name of the file you want to load</param>
-        public SudokuBoard(string fileName)
+        public SudokuBoard(SudokuBoard curBoard)
         {
-            throw new NotImplementedException();
+            Array.Copy(curBoard.Board, this.Board, this.Board.Length);
         }
 
 
