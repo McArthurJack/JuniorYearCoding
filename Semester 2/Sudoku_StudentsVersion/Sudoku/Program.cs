@@ -180,7 +180,7 @@ namespace Sudoku
         public static bool SolveBoardIterativelyWithQueue(ref SudokuBoard board)
         {
             Queue<SudokuBoard> boards = new Queue<SudokuBoard>();
-
+            boards.Enqueue(board);
             //As long as there is a board in the queue, do the following:
             while (boards.Count != 0)
             {
@@ -196,11 +196,21 @@ namespace Sudoku
                 else
                 {
                     //Find the first blank space "0" on the board
-                    while(stored() != 0)
+                    int collumn = 0;
+                    int row = 0;
+                    for (int i = 0; i < 9; i++)
                     {
-
+                        for (int j = 0; j < 9; j++)
+                        {
+                            if (stored.Board[i, j] == 0)
+                            {
+                                collumn = i;
+                                row = j;
+                            }
+                        }
                     }
                     //FindLegalDigits() on that space
+                    FindLegalDigits(board[row, collumn]);
                     //Enqueue a new board for each legal digit found (make sure to put that digit on the new board!)
                 }
             }
