@@ -210,8 +210,13 @@ namespace Sudoku
                         }
                     }
                     //FindLegalDigits() on that space
-                    List<int> Solver = ;
+                    List<int> Solver = //PROBLEM IS FIND LEGAL DIGITS CAN'T BE ACCESSED FROM THIS CLASS
                     //Enqueue a new board for each legal digit found (make sure to put that digit on the new board!)
+                    for (int i = 0; i < Solver.Count; i++)
+                    {
+                        stored.Board[collumn, row] = Solver[i];
+                        boards.Enqueue(stored);
+                    }
                 }
             }
         }
