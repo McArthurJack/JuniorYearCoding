@@ -178,7 +178,6 @@ namespace Sudoku
         /// <returns>List of valid integers for the given row and column</returns>
         public List<int> FindLegalDigits(int row, int col)
         {
-
             //Create list of all possible digits (1-9)
             List<int> Solutions = new List<int>();
             for (int e = 1; e < 10; e++)

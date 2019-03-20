@@ -210,11 +210,10 @@ namespace Sudoku
                         }
                     }
                     //FindLegalDigits() on that space
-                    FindLegalDigits(board[row, collumn]);
+                    List<int> Solver = ;
                     //Enqueue a new board for each legal digit found (make sure to put that digit on the new board!)
                 }
             }
-                
         }
     }
 }
