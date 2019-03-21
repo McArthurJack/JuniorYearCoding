@@ -198,6 +198,7 @@ namespace Sudoku
                     //Find the first blank space "0" on the board
                     int collumn = 0;
                     int row = 0;
+                    bool wow = false;
                     for (int i = 0; i < 9; i++)
                     {
                         for (int j = 0; j < 9; j++)
@@ -206,19 +207,27 @@ namespace Sudoku
                             {
                                 collumn = i;
                                 row = j;
+                                wow = true;
                             }
+                            if (wow == true)
+                                break;
                         }
+                        if (wow == true)
+                            break;
                     }
                     //FindLegalDigits() on that space
-                    List<int> Solver = //PROBLEM IS FIND LEGAL DIGITS CAN'T BE ACCESSED FROM THIS CLASS
+                    List<int> Solver = stored.FindLegalDigits(row, collumn);
                     //Enqueue a new board for each legal digit found (make sure to put that digit on the new board!)
                     for (int i = 0; i < Solver.Count; i++)
                     {
-                        stored.Board[collumn, row] = Solver[i];
-                        boards.Enqueue(stored);
+                        SudokuBoard Evolved = new SudokuBoard();
+                        Array.Copy(stored.Board, Evolved.Board, 81);
+                        Evolved.Board[collumn, row] = Solver[i];
+                        boards.Enqueue(Evolved);
                     }
                 }
             }
+            return false;
         }
     }
 }
