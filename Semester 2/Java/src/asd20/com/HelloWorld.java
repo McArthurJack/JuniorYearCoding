@@ -48,7 +48,7 @@ public class HelloWorld {
 	
 	static void Problem02()
 	{
-		String absolutePath = "C:\\Users\\132333\\Documents\\JuniorYearCoding\\Semester 2\\Code Quest\\CodeQuest2\\Inputs\\Prob02.in.txt";
+		String absolutePath = "Inputs\\Prob02.in.txt";
 		try(BufferedReader bufferedReader = new BufferedReader(new FileReader(absolutePath))){
 			int Count = Integer.parseInt(bufferedReader.readLine());
 			for (int i = 0; i < Count; i++)
