@@ -7,18 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Timers;
 
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        Timer timer1 = new Timer();
-
+        Bitmap picture = new Bitmap(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\Pictures\\" + @"beach.jpg");
+        System.Timers.Timer timer1 = new System.Timers.Timer();
         public Form1()
         {
             InitializeComponent();
-            timer1.Interval = 1;
-            timer1.Tick += new EventHandler(timer1_Tick);
+            PictureBox.Width = picture.Width;
+            PictureBox.Height = picture.Height;
             //DoxSomeone.MouseEnter += (o, e) => ChangeColor(Color.Red, Color.Black);
             //DoxSomeone.MouseLeave += (o, e) => ChangeColor(Color.White, Color.Blue);
         }
@@ -60,27 +61,42 @@ namespace WindowsFormsApp1
             }
             else if (textBox1.Text == "Start")
             {
-                timer1.Start();
+                timer1.Interval = 1;
+                timer1.Elapsed += timer1_Tick;
+                timer1.AutoReset = true;
+                timer1.Enabled = true;
             }
         }
 
-        private void timer1_Tick(Object Sender, EventArgs e)
+        private void timer1_Tick(Object source, System.Timers.ElapsedEventArgs e)
         {
-            
-            Bitmap picture = new Bitmap(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\Pictures\\" + @"beach.jpg");
-            Bitmap copy = new Bitmap(picture.Width, picture.Height);
-            PictureBox.Width = picture.Width;
-            PictureBox.Height = picture.Height;
-            for (int x = 0; x < picture.Width; x++)
+            Bitmap copy = new Bitmap(AppDomain.CurrentDomain.BaseDirectory + "..\\..\\Pictures\\" + @"beach.jpg");
+            Bitmap Altered = new Bitmap(copy.Width, copy.Height);
+            for (int x = 0; x < copy.Width; x++)
             {
-                for (int y = 0; y < picture.Height; y++)
+                for (int y = 0; y < copy.Height; y++)
                 {
-                    Color pixel = picture.GetPixel(x, y);
-                    pixel = Color.FromArgb(pixel.ToArgb() ^ 0xffffff);
-                    copy.SetPixel(x, y, pixel);
+                    Color pixel = copy.GetPixel(x, y);
+                    int pixelA = pixel.A;
+                    int pixelB = pixel.B;
+                    int pixelG = pixel.G;
+                    if (pixelA == 255)
+                    {
+                        pixelA = 0;
+                    }
+                    if (pixelB == 255)
+                    {
+                        pixelB = 0;
+                    }
+                    if (pixelG == 255)
+                    {
+                        pixelG = 0;
+                    }
+                    Color temp = Color.FromArgb(pixelA + 1, pixelB + 1, pixelG + 1);
+                    Altered.SetPixel(x, y, temp);
                 }
             }
-            PictureBox.Image = copy;
+            PictureBox.Image = Altered;
         }
     }
 }
