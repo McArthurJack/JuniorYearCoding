@@ -10,21 +10,20 @@ namespace BinaryTree
     {
         private Node Root;
         public int Height;
-        public int count = 0;
         public int Count()
         {
-            return CountRecursive(Root);
+            return CountRecursive(Root, 0);
         }
 
-        private int CountRecursive(Node cur)
+        private int CountRecursive(Node cur, int count)
         {
             if (cur.LeftChild == null && cur.RightChild == null)
                 return count + 1;
             if (cur.LeftChild != null)
-                CountRecursive(cur.LeftChild);
+                return 1 + CountRecursive(cur.LeftChild, count);
             if (cur.RightChild != null)
-                CountRecursive(cur.RightChild);
-            return count;
+                return 1 + CountRecursive(cur.RightChild, count);
+            return count + 1;
         }
 
         public void Print()
