@@ -143,22 +143,11 @@ namespace Sudoku
             for (int p = 0; p < 3; p++)
             {
                 int temp = 0;
-                int end = 3;
-                if (p == 1)
-                {
-                    temp = 3;
-                    end = 6;
-                }
-                if (p == 2)
-                {
-                    temp = 6;
-                    end = 9;
-                }
                 for (int i = 1; i < 10; i++)
                 {
-                    for (int j = temp; j < end; j++)
+                    for (int j = temp; j < temp + 3; j++)
                     {
-                        Verify.Add(Board[i - 1, j]);
+                        Verify.Add(Board[i-1, j]);
                     }
                     if (i % 3 == 0)
                     {
@@ -172,6 +161,7 @@ namespace Sudoku
                                 return false;
                         }
                         Verify.Clear();
+                        temp += 3;
                     }
                 }
             }
