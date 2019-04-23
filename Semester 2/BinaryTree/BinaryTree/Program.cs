@@ -14,9 +14,9 @@ namespace BinaryTree
             tree.Insert('h');
             tree.Insert('b');
             tree.Insert('j');
-            tree.Insert('x');
+            tree.Insert('i');
             tree.Insert('q');
-            tree.Insert('r');
+            tree.Insert('a');
             tree.Insert('g');
             tree.Print();
             Console.WriteLine(tree.Count());
