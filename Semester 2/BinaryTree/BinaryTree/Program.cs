@@ -11,15 +11,14 @@ namespace BinaryTree
         static void Main(string[] args)
         {
             BinaryTree tree = new BinaryTree();
-            tree.Insert('h');
-            tree.Insert('b');
-            tree.Insert('j');
-            tree.Insert('i');
-            tree.Insert('q');
-            tree.Insert('a');
-            tree.Insert('g');
+            Random rand = new Random();
+            for (int i = 0; i < 64; i++)
+            {
+                tree.Insert((char)rand.Next(65, 91));
+            }
+            tree.Balance();
             tree.Print();
-            Console.WriteLine(tree.Count());
+            tree.PreOrderPrint();
         }
     }
 }
