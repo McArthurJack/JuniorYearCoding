@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace BinaryTree
 {
-    class BinaryTreePrinter
+    class BinaryTreePrinter <T> where T : IComparable<T>
     {
-        public static void printNode(Node root)
+        public static void printNode(Node<T> root)
         {
-            int maxLevel = BinaryTreePrinter.maxLevel(root);
+            int maxLevel = BinaryTreePrinter<T>.maxLevel(root);
 
-            printNodeInternal(new List<Node>() { root }, 1, maxLevel);
+            printNodeInternal(new List<Node<T>>() { root }, 1, maxLevel);
         }
 
-        private static void printNodeInternal(List<Node> nodes, int level, int maxLevel)
+        private static void printNodeInternal(List<Node<T>> nodes, int level, int maxLevel)
         {
-            if (nodes.Count == 0 || BinaryTreePrinter.isAllElementsNull(nodes))
+            if (nodes.Count == 0 || BinaryTreePrinter<T>.isAllElementsNull(nodes))
                 return;
 
             int floor = maxLevel - level;
@@ -25,9 +25,9 @@ namespace BinaryTree
             int firstSpaces = (int)Math.Pow(2, (floor)) - 1;
             int betweenSpaces = (int)Math.Pow(2, (floor + 1)) - 1;
 
-            BinaryTreePrinter.printWhitespaces(firstSpaces);
+            BinaryTreePrinter<T>.printWhitespaces(firstSpaces);
 
-            List<Node> newNodes = new List<Node>();
+            List<Node<T>> newNodes = new List<Node<T>>();
             foreach (var node in nodes)
             {
                 if (node != null)
@@ -43,7 +43,7 @@ namespace BinaryTree
                     Console.Write(" ");
                 }
 
-                BinaryTreePrinter.printWhitespaces(betweenSpaces);
+                BinaryTreePrinter<T>.printWhitespaces(betweenSpaces);
             }
             Console.WriteLine("");
 
@@ -51,26 +51,26 @@ namespace BinaryTree
             {
                 for (int j = 0; j < nodes.Count; j++)
                 {
-                    BinaryTreePrinter.printWhitespaces(firstSpaces - i);
+                    BinaryTreePrinter<T>.printWhitespaces(firstSpaces - i);
                     if (nodes[j] == null)
                     {
-                        BinaryTreePrinter.printWhitespaces(endgeLines + endgeLines + i + 1);
+                        BinaryTreePrinter<T>.printWhitespaces(endgeLines + endgeLines + i + 1);
                         continue;
                     }
 
                     if (nodes[j].LeftChild != null)
                         Console.Write("/");
                     else
-                        BinaryTreePrinter.printWhitespaces(1);
+                        BinaryTreePrinter<T>.printWhitespaces(1);
 
-                    BinaryTreePrinter.printWhitespaces(i + i - 1);
+                    BinaryTreePrinter<T>.printWhitespaces(i + i - 1);
 
                     if (nodes[j].RightChild != null)
                         Console.Write("\\");
                     else
-                        BinaryTreePrinter.printWhitespaces(1);
+                        BinaryTreePrinter<T>.printWhitespaces(1);
 
-                    BinaryTreePrinter.printWhitespaces(endgeLines + endgeLines - i);
+                    BinaryTreePrinter<T>.printWhitespaces(endgeLines + endgeLines - i);
                 }
 
                 Console.WriteLine("");
@@ -85,15 +85,15 @@ namespace BinaryTree
                 Console.Write(" ");
         }
 
-        private static int maxLevel(Node node)
+        private static int maxLevel(Node<T> node)
         {
             if (node == null)
                 return 0;
 
-            return Math.Max(BinaryTreePrinter.maxLevel(node.LeftChild), BinaryTreePrinter.maxLevel(node.RightChild)) + 1;
+            return Math.Max(BinaryTreePrinter<T>.maxLevel(node.LeftChild), BinaryTreePrinter<T>.maxLevel(node.RightChild)) + 1;
         }
 
-        private static bool isAllElementsNull(List<Node> list)
+        private static bool isAllElementsNull(List<Node<T>> list)
         {
             foreach (var node in list)
             {

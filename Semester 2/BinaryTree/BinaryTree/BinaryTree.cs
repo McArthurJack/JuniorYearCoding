@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace BinaryTree
 {
-    class BinaryTree
+    class BinaryTree <T> where T : IComparable<T>
     {
-        private Node Root;
+        private Node<T> Root;
 
         public int Height()
         {
-            throw new NotImplementedException();
+            return Root.Height;
         }
 
         public int Count()
@@ -20,11 +20,11 @@ namespace BinaryTree
             return CountRecursive(Root);
         }
 
-        private int CountRecursive(Node cur)
+        private int CountRecursive(Node<T> cur)
         {
             int count = 1;
             if (cur.LeftChild != null)
-                count += CountRecursive(cur.LeftChild);
+                count = count + CountRecursive(cur.LeftChild);
             if (cur.RightChild != null)
                 count += CountRecursive(cur.LeftChild);
             if (cur.LeftChild == null && cur.RightChild == null)
@@ -34,43 +34,43 @@ namespace BinaryTree
 
         public void Print()
         {
-            BinaryTreePrinter.printNode(Root);
+            BinaryTreePrinter<T>.printNode(Root);
         }
 
-        public void Insert(char val)
+        public void Insert(T val)
         {
             if (Root == null)
-                Root = new Node(val);
+                Root = new Node<T>(val);
             else
             {
                 Insert(Root, val);
             }
         }
 
-        private void Insert(Node cur, char val)
+        private void Insert(Node<T> cur, T val)
         {
-            if (val >= cur.Value && cur.RightChild == null)
+            if (val.CompareTo(cur.Value) >= 0 && cur.RightChild == null)
             {
-                cur.RightChild = new Node(val);
+                cur.RightChild = new Node<T>(val);
                 return;
             }
-            if (val < cur.Value && cur.LeftChild == null)
+            if (val.CompareTo(cur.Value) < 0 && cur.LeftChild == null)
             {
-                cur.LeftChild = new Node(val);
+                cur.LeftChild = new Node<T>(val);
                 return;
             }
 
-            if (val >= cur.Value)
+            if (val.CompareTo(cur.Value) >= 0)
             {
                 Insert(cur.RightChild, val);
             }
-            else if (val < cur.Value)
+            else if (val.CompareTo(cur.Value) < 0)
             {
                 Insert(cur.LeftChild, val);
             }
         }
 
-        public void Remove(char val)
+        public void Remove(T val)
         {
             if (Search(val) == false)
             {
@@ -79,11 +79,11 @@ namespace BinaryTree
                 Remove(Root, val);
         }
 
-        private Node Remove(Node cur, char val)
+        private Node<T> Remove(Node<T> cur, T val)
         {
-            if (val < cur.Value)
+            if (val.CompareTo(cur.Value) < 0)
                 cur.LeftChild = Remove(cur.LeftChild, val);
-            else if (val > cur.Value)
+            else if (val.CompareTo(cur.Value) > 0)
                 cur.RightChild = Remove(cur.RightChild, val);
             else
             {
@@ -91,8 +91,8 @@ namespace BinaryTree
                     return cur.RightChild;
                 else if (cur.RightChild == null)
                     return cur.LeftChild;
-                Node min = cur.RightChild;
-                char minValue = min.Value;
+                Node<T> min = cur.RightChild;
+                T minValue = min.Value;
                 while (min.LeftChild != null)
                 {
                     minValue = min.LeftChild.Value;
@@ -104,7 +104,7 @@ namespace BinaryTree
             return cur;
         }
 
-        public bool Search(char val)
+        public bool Search(T val)
         {
             if (Root == null)
                 return false;
@@ -112,17 +112,17 @@ namespace BinaryTree
                 return Search(Root, val);
         }
 
-        private bool Search(Node cur, char val)
+        private bool Search(Node<T> cur, T val)
         {
-            if (val == cur.Value)
+            if (val.CompareTo(cur.Value) == 0)
             {
                 return true;
             }
-            if (val >= cur.Value && cur.RightChild != null)
+            if (val.CompareTo(cur.Value) >= 0 && cur.RightChild != null)
             {
                 Search(cur.RightChild, val);
             }
-            if (val < cur.Value && cur.LeftChild != null)
+            if (val.CompareTo(cur.Value) < 0 && cur.LeftChild != null)
             {
                 Search(cur.LeftChild, val);
             }
@@ -134,7 +134,7 @@ namespace BinaryTree
             PreOrderPrint(Root);
         }
 
-        private void PreOrderPrint(Node cur)
+        private void PreOrderPrint(Node<T> cur)
         {
             if (cur == null)
                 return;
@@ -148,7 +148,7 @@ namespace BinaryTree
             InOrderPrint(Root);
         }
 
-        private void InOrderPrint(Node cur)
+        private void InOrderPrint(Node<T> cur)
         {
             if (cur == null)
                 return;
@@ -162,7 +162,7 @@ namespace BinaryTree
             PostOrderPrint(Root);
         }
 
-        private void PostOrderPrint(Node cur)
+        private void PostOrderPrint(Node<T> cur)
         {
             if (cur == null)
                 return;
@@ -173,10 +173,10 @@ namespace BinaryTree
 
         public void Balance()
         {
-            buildTree(Root);
+            Root = buildTree(Root);
         }
 
-        public virtual void storeBSTNodes(Node cur, List<Node> nodes)
+        public virtual void storeBSTNodes(Node<T> cur, List<Node<T>> nodes)
         {
             if (cur == null)
                 return;
@@ -186,12 +186,12 @@ namespace BinaryTree
             storeBSTNodes(cur.RightChild, nodes);
         }
 
-        public virtual Node buildTreeUtil(List<Node> nodes, int start, int end)
+        public virtual Node<T> buildTreeUtil(List<Node<T>> nodes, int start, int end)
         {
             if (start > end)
                 return null;
             int mid = (start + end) / 2;
-            Node node = nodes[mid];
+            Node<T> node = nodes[mid];
 
             node.LeftChild = buildTreeUtil(nodes, start, mid - 1);
             node.RightChild = buildTreeUtil(nodes, mid + 1, end);
@@ -199,9 +199,9 @@ namespace BinaryTree
             return node;
         }
 
-        public virtual Node buildTree(Node cur)
+        public virtual Node<T> buildTree(Node<T> cur)
         {
-            List<Node> nodes = new List<Node>();
+            List<Node<T>> nodes = new List<Node<T>>();
             storeBSTNodes(cur, nodes);
 
             int n = nodes.Count();

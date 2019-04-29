@@ -10,15 +10,17 @@ namespace BinaryTree
     {
         static void Main(string[] args)
         {
-            BinaryTree tree = new BinaryTree();
+            BinaryTree<bool> tree = new BinaryTree<bool>();
             Random rand = new Random();
-            for (int i = 0; i < 64; i++)
+            for (int i = 0; i < 50; i++)
             {
-                tree.Insert((char)rand.Next(65, 91));
+                if (rand.Next(0, 2) == 0)
+                    tree.Insert(false);
+                else
+                    tree.Insert(true);
+                tree.Balance();
             }
-            tree.Balance();
             tree.Print();
-            tree.PreOrderPrint();
         }
     }
 }
